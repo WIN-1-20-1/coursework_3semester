@@ -22,4 +22,11 @@ public class Methods {
         }
         return tasks;
     }
+
+    public static String getSalary(ObjectId id) {
+        Document founded = Database.users.find(new Document("_id", id)).first();
+        assert founded != null;
+        String salary = String.valueOf(founded.getInteger("salary"));
+        return salary;
+    }
 }

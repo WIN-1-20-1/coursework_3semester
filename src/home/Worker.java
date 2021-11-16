@@ -31,6 +31,12 @@ public class Worker  {
             switch (aktuelleOption) {
                 case "Liste meiner Aufgaben anzeigen":
                    Controller.loadStage("tasks");
+                   break;
+                case "Zeige mein Gehalt":
+                   Controller.loadStage("WorkerSalary");
+                   break;
+                default:
+                    break;
             }
         });
         LogOutButton.setOnAction(Methods::logOut);
