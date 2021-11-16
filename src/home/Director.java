@@ -25,10 +25,11 @@ public class Director {
             aktuelleOption = DirectorListView.getSelectionModel().getSelectedItem();
             switch (aktuelleOption) {
                 case "Liste aller Abdeckungsbereiche anzeigen":
-                    Controller.loadStage("MarkCat");
+                    Controller.loadStage("ClientsAreas");
                     break;
 
                 case "Liste der Budgetkategorien anzeigen":
+                    Controller.loadStage("MarkCat");
                     break;
                 default:
                     break;

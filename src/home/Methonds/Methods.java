@@ -40,4 +40,21 @@ public class Methods {
         }
         return categories;
     }
+    public static float calculateClietnsPerArea(String area) {
+        float result;
+        float people = 0;
+        float clients = 0;
+        for (Document document : Database.foundedClients) {
+            if(!document.getString("place").equals("")){
+                people++;
+            }
+        }
+        for (Document document : Database.foundedClients) {
+            if(document.getString("place").equals(area)){
+                clients++;
+            }
+        }
+        result = (clients/people) * 100;
+        return result;
+    }
 }
