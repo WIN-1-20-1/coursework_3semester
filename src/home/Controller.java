@@ -51,7 +51,7 @@ public class Controller {
 
     public static void loadStage(String fxml, ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(Controller.class.getResource(fxml + ".fxml"));
+            Parent root = FXMLLoader.load(Controller.class.getResource("fxml/" + fxml + ".fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
