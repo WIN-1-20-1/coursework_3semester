@@ -1,7 +1,5 @@
 package home;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,7 +17,7 @@ public class Worker  {
     @FXML
     private Button LogOutButton;
 
-    String[] option = {"Liste meiner Aufgaben anzeigen", "Aufgabe abschließen", "Liste der abgeschlossenen Aufgaben anzeigen", "Zeige mein Gehalt"};
+    String[] option = {"Liste meiner Aufgaben anzeigen", "Zeige mein Gehalt"};
 
     String aktuelleOption;
 
@@ -28,7 +26,13 @@ public class Worker  {
         workerLabel.setText( "Hallo, " + Controller.name);
 
         WorkerListView.getItems().addAll(option);
-        WorkerListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> aktuelleOption = WorkerListView.getSelectionModel().getSelectedItem());
+        WorkerListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            aktuelleOption = WorkerListView.getSelectionModel().getSelectedItem();
+            switch (aktuelleOption) {
+                case "Liste meiner Aufgaben anzeigen":
+                   Controller.loadStage("tasks");
+            }
+        });
         LogOutButton.setOnAction(Methods::logOut);
     }
 }

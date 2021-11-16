@@ -12,12 +12,14 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.bson.Document;
 import home.Database.Database;
+import org.bson.types.ObjectId;
 
 import java.io.IOException;
 
 public class Controller {
     public static String name;
     public static String position;
+    public static ObjectId id;
 
     @FXML
     private Button authButton;
@@ -41,7 +43,8 @@ public class Controller {
                     String userPosition = founded.getString("position");
                     name = founded.getString("name");
                     position = userPosition;
-                    loadStage(userPosition, event);
+                    id = founded.getObjectId("_id");
+                    loadStage(userPosition);
 
                 } else {
                     System.out.println("You entered wrong login or password");
@@ -49,13 +52,13 @@ public class Controller {
         });
     }
 
-    public static void loadStage(String fxml, ActionEvent event) {
+    public static void loadStage(String fxml) {
         try {
             Parent root = FXMLLoader.load(Controller.class.getResource("fxml/" + fxml + ".fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-            ((Node)(event.getSource())).getScene().getWindow().hide();
+//            ((Node)(new ActionEvent().getSource())).getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
         }
