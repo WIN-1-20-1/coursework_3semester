@@ -29,7 +29,19 @@ public class Director {
                     break;
 
                 case "Liste der Budgetkategorien anzeigen":
-                    Controller.loadStage("MarkCat");
+
+                    break;
+                case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing":
+                    break;
+                case "Aktuelle Marketingmittel anzeigen":
+                    break;
+                case "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an":
+                    break;
+                case "Erhöhen Sie das Gehalt eines Mitarbeiters":
+                    break;
+                case "Senken Sie das Gehalt eines Mitarbeiters":
+                    break;
+                case "Zeigen Sie die Liste der Geräte für den Bau von Objekten":
                     break;
                 default:
                     break;
