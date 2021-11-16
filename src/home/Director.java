@@ -1,7 +1,5 @@
 package home;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -25,7 +23,16 @@ public class Director {
         DirectorListView.getItems().addAll(option);
         DirectorListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             aktuelleOption = DirectorListView.getSelectionModel().getSelectedItem();
-            System.out.println(aktuelleOption);
+            switch (aktuelleOption) {
+                case "Liste aller Abdeckungsbereiche anzeigen":
+                    Controller.loadStage("MarkCat");
+                    break;
+
+                case "Liste der Budgetkategorien anzeigen":
+                    break;
+                default:
+                    break;
+            }
         });
     }
 }

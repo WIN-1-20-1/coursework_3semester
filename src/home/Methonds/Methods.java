@@ -29,4 +29,15 @@ public class Methods {
         String salary = String.valueOf(founded.getInteger("salary"));
         return salary;
     }
+
+    public static ArrayList<String> getMarkCat() {
+        ArrayList<String> categories = new ArrayList<String>();
+        for (Document document : Database.foundedBudgets) {
+            String category = document.getString("place");
+            if (!categories.contains(category) && category != null){
+                categories.add(category);
+            }
+        }
+        return categories;
+    }
 }
