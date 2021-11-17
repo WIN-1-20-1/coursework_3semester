@@ -29,14 +29,10 @@ public class Worker  {
         WorkerListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             aktuelleOption = WorkerListView.getSelectionModel().getSelectedItem();
             switch (aktuelleOption) {
-                case "Liste meiner Aufgaben anzeigen":
-                   Controller.loadStage("tasks");
-                   break;
-                case "Zeige mein Gehalt":
-                   Controller.loadStage("WorkerSalary");
-                   break;
-                default:
-                    break;
+                case "Liste meiner Aufgaben anzeigen" -> Controller.loadStage("tasks");
+                case "Zeige mein Gehalt" -> Controller.loadStage("WorkerSalary");
+                default -> {
+                }
             }
         });
         LogOutButton.setOnAction(Methods::logOut);

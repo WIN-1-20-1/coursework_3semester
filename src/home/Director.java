@@ -1,6 +1,9 @@
 package home;
 
+import home.Methonds.Methods;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
@@ -34,6 +37,15 @@ public class Director {
                 case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing":
                     break;
                 case "Aktuelle Marketingmittel anzeigen":
+                    int funds = Methods.markFunds();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Aktuelle Marketingmittel anzeigen");
+                    alert.setHeaderText(funds + "€");
+                    alert.showAndWait().ifPresent(rs -> {
+                        if (rs == ButtonType.OK) {
+                            System.out.print("");
+                        }
+                    });
                     break;
                 case "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an":
                     break;

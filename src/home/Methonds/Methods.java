@@ -40,6 +40,7 @@ public class Methods {
         }
         return categories;
     }
+
     public static float calculateClietnsPerArea(String area) {
         float result;
         float people = 0;
@@ -56,5 +57,15 @@ public class Methods {
         }
         result = (clients/people) * 100;
         return result;
+    }
+
+    public static int markFunds(){
+        int funds = 0;
+        for (Document document : Database.foundedBudgets) {
+            if ("marketing".equals(document.getString("type"))) {
+                funds += document.getInteger("cost");
+            }
+        }
+        return funds;
     }
 }
