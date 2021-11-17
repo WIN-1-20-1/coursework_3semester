@@ -68,4 +68,13 @@ public class Methods {
         }
         return funds;
     }
+
+    public static ArrayList<String> getEquipment() {
+        ArrayList<String> equipment = new ArrayList<String>();
+        for (Document document : Database.foundedEquipment) {
+            String str = document.getString("name") + ": " +document.getString("quantity");
+            equipment.add(str);
+        }
+        return equipment;
+    }
 }

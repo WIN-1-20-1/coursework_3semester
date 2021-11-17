@@ -54,6 +54,7 @@ public class Director {
                 case "Senken Sie das Gehalt eines Mitarbeiters":
                     break;
                 case "Zeigen Sie die Liste der Geräte für den Bau von Objekten":
+                    Controller.loadStage("Equipment");
                     break;
                 default:
                     break;
