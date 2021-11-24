@@ -27,7 +27,7 @@ public class Tasks {
         taskLabel.setText("Aufgaben");
         LogOutButton.setOnAction(Methods::logOut);
         tasksHomeButton.setOnAction(event -> {
-            Controller.loadStage(Controller.position);
+            Controller.loadStage(Controller.position, event);
         });
         ArrayList<String> tasks = Methods.getTasks(Controller.id);
         if (tasks.size() > 0) {

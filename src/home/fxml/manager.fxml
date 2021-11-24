@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.Manager">
     <children>
@@ -13,6 +14,7 @@
                     <font>
                         <Font size="20.0" />
                     </font></Label>
+                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Log out" />
             </children>
         </AnchorPane>
         <ListView fx:id="ManagerListView" fixedCellSize="40.0" layoutX="155.0" layoutY="105.0" prefHeight="390.0" prefWidth="599.0" />

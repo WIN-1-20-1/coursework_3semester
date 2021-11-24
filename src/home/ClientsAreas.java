@@ -24,7 +24,7 @@ public class ClientsAreas {
         AreasListView.getItems().addAll(stadte);
         LogOutButton.setOnAction(Methods::logOut);
         HomeButton.setOnAction(event -> {
-            Controller.loadStage(Controller.position);
+            Controller.loadStage(Controller.position, event);
         });
         AreasListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             aktuelleOption = AreasListView.getSelectionModel().getSelectedItem();

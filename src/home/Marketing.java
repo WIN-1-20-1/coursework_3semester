@@ -1,10 +1,12 @@
 package home;
 
 import home.Methonds.Methods;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 
 public class Marketing {
 
@@ -35,6 +37,13 @@ public class Marketing {
                 case "Liste der Budgetkategorien anzeigen":
                     break;
 
+            }
+        });
+        MarketingListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("clicked on " + MarketingListView.getSelectionModel().getSelectedItem());
             }
         });
     }

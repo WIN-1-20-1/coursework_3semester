@@ -24,7 +24,7 @@ public class WorkerSalary {
     void initialize() {
         LogOutButton.setOnAction(Methods::logOut);
         tasksHomeButton.setOnAction(event -> {
-            Controller.loadStage(Controller.position);
+            Controller.loadStage(Controller.position, event);
         });
         WorkerSalaryText.setText("Gehalt ist " + Methods.getSalary(Controller.id) + "€");
     }

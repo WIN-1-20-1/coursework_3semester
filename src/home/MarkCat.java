@@ -22,7 +22,7 @@ public class MarkCat {
     void initialize() {
         LogOutButton.setOnAction(Methods::logOut);
         catHomeButton.setOnAction(event -> {
-            Controller.loadStage(Controller.position);
+            Controller.loadStage(Controller.position, event);
         });
         ArrayList<String> categories = Methods.getMarkCat();
         catListView.getItems().addAll(categories);

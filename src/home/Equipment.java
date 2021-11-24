@@ -24,7 +24,7 @@ public class Equipment {
     void initialize() {
         LogOutButton.setOnAction(Methods::logOut);
         HomeButton.setOnAction(event -> {
-            Controller.loadStage(Controller.position);
+            Controller.loadStage(Controller.position, event);
         });
         equipmentListView.getItems().addAll(Methods.getEquipment());
     }

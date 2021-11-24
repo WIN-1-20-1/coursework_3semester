@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.bson.Document;
 import home.Database.Database;
@@ -44,7 +45,7 @@ public class Controller {
                     name = founded.getString("name");
                     position = userPosition;
                     id = founded.getObjectId("_id");
-                    loadStage(userPosition);
+                    loadStage(userPosition, event);
 
                 } else {
                     System.out.println("You entered wrong login or password");
@@ -52,13 +53,25 @@ public class Controller {
         });
     }
 
-    public static void loadStage(String fxml) {
+    public static void loadStage(String fxml, MouseEvent event) {
         try {
             Parent root = FXMLLoader.load(Controller.class.getResource("fxml/" + fxml + ".fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-//            ((Node)(new ActionEvent().getSource())).getScene().getWindow().hide();
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loadStage(String fxml, ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(Controller.class.getResource("fxml/" + fxml + ".fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+            ((Node)(event.getSource())).getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
         }
