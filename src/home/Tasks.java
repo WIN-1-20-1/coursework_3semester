@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import org.bson.Document;
 
 import java.util.ArrayList;
 
@@ -26,15 +27,27 @@ public class Tasks {
     void initialize() {
         taskLabel.setText("Aufgaben");
         LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
-        tasksHomeButton.setOnAction(event -> {
-            Controller.loadStage(Controller.position, event);
-        });
-        ArrayList<String> tasks = Methods.getTasks(Controller.id);
+        tasksHomeButton.setOnAction(event -> Controller.loadStage(Controller.position, event));
+        ArrayList<Document> tasks = Methods.getTasks();
         if (tasks.size() > 0) {
-            tasksListView.getItems().addAll(tasks);
+            for (Document document : tasks) {
+                tasksListView.getItems().add(document.getString("task"));
+            }
         } else {
             taskLabel.setText("Keine Aufgaben");
         }
+        tasksListView.setOnMouseClicked(event -> {
+           String aktuelleOption = tasksListView.getSelectionModel().getSelectedItem();
+           for (Document document : tasks) {
+               if (document.getString("task").equals(aktuelleOption)){
+                    Methods.completeTask(document);
+                    tasksListView.getItems().remove(aktuelleOption);
+                   if (tasksListView.getItems().isEmpty()) {
+                       taskLabel.setText("Keine Aufgaben");
+                   }
+               }
+           }
+        });
 
     }
 

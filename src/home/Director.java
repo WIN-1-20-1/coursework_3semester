@@ -2,10 +2,7 @@ package home;
 
 import home.Methonds.Methods;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 
 public class Director {
 
@@ -15,6 +12,9 @@ public class Director {
     @FXML
     private ListView<String> DirectorListView;
 
+    @FXML
+    private Button LogOutButton;
+
     String[] option = {"Liste aller Abdeckungsbereiche anzeigen", "Liste der Budgetkategorien anzeigen", "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing", "Aktuelle Marketingmittel anzeigen", "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an", "Erhöhen Sie das Gehalt eines Mitarbeiters", "Senken Sie das Gehalt eines Mitarbeiters", "Zeigen Sie die Liste der Geräte für den Bau von Objekten"};
 
     String aktuelleOption;
@@ -22,7 +22,7 @@ public class Director {
     @FXML
     void initialize(){
         DirectorLabel.setText( "Hallo, " + Controller.name);
-
+        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
         DirectorListView.getItems().addAll(option);
         DirectorListView.setOnMouseClicked(event -> {
             aktuelleOption = DirectorListView.getSelectionModel().getSelectedItem();

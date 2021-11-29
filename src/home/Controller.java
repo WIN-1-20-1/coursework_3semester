@@ -14,8 +14,8 @@ import javafx.stage.Stage;
 import org.bson.Document;
 import home.Database.Database;
 import org.bson.types.ObjectId;
-
 import java.io.IOException;
+import java.util.Objects;
 
 public class Controller {
     public static String name;
@@ -30,9 +30,6 @@ public class Controller {
 
     @FXML
     private PasswordField SingUpPass;
-
-
-
 
     @FXML
     void initialize(){
@@ -55,7 +52,7 @@ public class Controller {
 
     public static void loadStage(String fxml, MouseEvent event) {
         try {
-            Parent root = FXMLLoader.load(Controller.class.getResource("fxml/" + fxml + ".fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("fxml/" + fxml + ".fxml")));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
@@ -67,7 +64,7 @@ public class Controller {
 
     public static void loadStage(String fxml, ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(Controller.class.getResource("fxml/" + fxml + ".fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("fxml/" + fxml + ".fxml")));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();

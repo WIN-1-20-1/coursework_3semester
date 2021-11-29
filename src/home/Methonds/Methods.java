@@ -1,5 +1,6 @@
 package home.Methonds;
 
+import com.mongodb.client.model.Filters;
 import home.Database.Database;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -8,14 +9,21 @@ import java.util.ArrayList;
 
 public class Methods {
 
-    public static ArrayList<String> getTasks(ObjectId id){
-        ArrayList<String> tasks = new ArrayList<String>();
+    public static ArrayList<Document> getTasks(){
+        ArrayList<Document> tasks = new ArrayList<Document>();
         for (Document document : Database.foundedTasks) {
-            if (id.toString().equals(document.getObjectId("worker").toString()) && !document.getString("status").equals("completed")) {
-                tasks.add(document.getString("task"));
+            if (!document.getString("status").equals("completed")) {
+                tasks.add(document);
             }
         }
         return tasks;
+    }
+
+    public static void completeTask(Document document) {
+        Database.tasks.updateOne(Filters.eq("_id", document.getObjectId("_id")), new Document(
+                "$set",
+                new Document("status", "completed")
+        ));
     }
 
     public static String getSalary(ObjectId id) {
