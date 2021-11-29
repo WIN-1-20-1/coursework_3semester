@@ -15,7 +15,7 @@ public class Director {
     @FXML
     private Button LogOutButton;
 
-    String[] option = {"Liste aller Abdeckungsbereiche anzeigen", "Liste der Budgetkategorien anzeigen", "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing", "Aktuelle Marketingmittel anzeigen", "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an", "Erhöhen Sie das Gehalt eines Mitarbeiters", "Senken Sie das Gehalt eines Mitarbeiters", "Zeigen Sie die Liste der Geräte für den Bau von Objekten"};
+    String[] option = {"Liste aller Abdeckungsbereiche anzeigen", "Budget für Marketing", "Budget für Gehälter", "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing", "Aktuelle Marketingmittel anzeigen", "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an", "Erhöhen Sie das Gehalt eines Mitarbeiters", "Senken Sie das Gehalt eines Mitarbeiters", "Zeigen Sie die Liste der Geräte für den Bau von Objekten"};
 
     String aktuelleOption;
 
@@ -26,20 +26,34 @@ public class Director {
         DirectorListView.getItems().addAll(option);
         DirectorListView.setOnMouseClicked(event -> {
             aktuelleOption = DirectorListView.getSelectionModel().getSelectedItem();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
         switch (aktuelleOption) {
             case "Liste aller Abdeckungsbereiche anzeigen":
                 Controller.loadStage("ClientsAreas", event);
                 break;
-            case "Liste der Budgetkategorien anzeigen":
-
+            case "Budget für Marketing":
+                alert.setTitle("Marketing");
+                alert.setHeaderText(Methods.getBudget("marketing") + "€");
+                alert.showAndWait().ifPresent(rs -> {
+                    if (rs == ButtonType.OK) {
+                        System.out.print("");
+                    }
+                });
+                break;
+            case "Budget für Gehälter":
+                alert.setTitle("Gehälter");
+                alert.setHeaderText(Methods.getBudget("salary") + "€");
+                alert.showAndWait().ifPresent(rs -> {
+                    if (rs == ButtonType.OK) {
+                        System.out.print("");
+                    }
+                });
                 break;
             case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing":
                 break;
             case "Aktuelle Marketingmittel anzeigen":
-                int funds = Methods.markFunds();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Aktuelle Marketingmittel anzeigen");
-                alert.setHeaderText(funds + "€");
+                alert.setHeaderText(Methods.markFunds() + "€");
                 alert.showAndWait().ifPresent(rs -> {
                     if (rs == ButtonType.OK) {
                         System.out.print("");

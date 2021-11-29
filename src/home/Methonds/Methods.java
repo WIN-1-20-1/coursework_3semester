@@ -7,6 +7,8 @@ import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 
+import static java.lang.Integer.parseInt;
+
 public class Methods {
 
     public static ArrayList<Document> getTasks(){
@@ -78,5 +80,15 @@ public class Methods {
             equipment.add(str);
         }
         return equipment;
+    }
+    
+    public static int getBudget(String category) {
+        int res = 0;
+        for (Document document : Database.foundedBudgets) {
+            if (document.getObjectId("_id").toString().equals("606624505afe5468c793940f")) {
+                res = Integer.parseInt(document.getString(category));
+            }
+        }
+        return res;
     }
 }
