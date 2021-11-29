@@ -28,22 +28,18 @@ public class Marketing {
         MarketingLabel.setText( "Hallo, " + Controller.name);
 
         MarketingListView.getItems().addAll(option);
-        LogOutButton.setOnAction(Methods::logOut);
-        MarketingListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-            aktuelleOption = MarketingListView.getSelectionModel().getSelectedItem();
-            switch (aktuelleOption) {
-                case "Liste aller Abdeckungsbereiche anzeigen":
-                    break;
-                case "Liste der Budgetkategorien anzeigen":
-                    break;
-
-            }
-        });
+        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
         MarketingListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("clicked on " + MarketingListView.getSelectionModel().getSelectedItem());
+                aktuelleOption = MarketingListView.getSelectionModel().getSelectedItem();
+                switch (aktuelleOption) {
+                    case "Liste aller Abdeckungsbereiche anzeigen":
+                        break;
+                    case "Liste der Budgetkategorien anzeigen":
+                        break;
+
+                }
             }
         });
     }

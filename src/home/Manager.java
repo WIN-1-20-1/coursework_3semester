@@ -28,7 +28,7 @@ public class Manager {
         ManagerLabel.setText( "Hallo, " + Controller.name);
 
         ManagerListView.getItems().addAll(option);
-        LogOutButton.setOnAction(Methods::logOut);
+        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
         ManagerListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             aktuelleOption = ManagerListView.getSelectionModel().getSelectedItem();
             System.out.println(aktuelleOption);

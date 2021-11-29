@@ -1,13 +1,11 @@
 package home;
 
 import home.Methonds.Methods;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
 
 public class Director {
 
@@ -26,82 +24,40 @@ public class Director {
         DirectorLabel.setText( "Hallo, " + Controller.name);
 
         DirectorListView.getItems().addAll(option);
-//        DirectorListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-//            aktuelleOption = DirectorListView.getSelectionModel().getSelectedItem();
-//            switch (aktuelleOption) {
-//                case "Liste aller Abdeckungsbereiche anzeigen":
-//                    Controller.loadStage("ClientsAreas");
-//                    break;
-//
-//                case "Liste der Budgetkategorien anzeigen":
-//
-//                    break;
-//                case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing":
-//                    break;
-//                case "Aktuelle Marketingmittel anzeigen":
-//                    int funds = Methods.markFunds();
-//                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                    alert.setTitle("Aktuelle Marketingmittel anzeigen");
-//                    alert.setHeaderText(funds + "€");
-//                    alert.showAndWait().ifPresent(rs -> {
-//                        if (rs == ButtonType.OK) {
-//                            System.out.print("");
-//                        }
-//                    });
-//                    break;
-//                case "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an":
-//                    break;
-//                case "Erhöhen Sie das Gehalt eines Mitarbeiters":
-//                    break;
-//                case "Senken Sie das Gehalt eines Mitarbeiters":
-//                    break;
-//                case "Zeigen Sie die Liste der Geräte für den Bau von Objekten":
-//                    Controller.loadStage("Equipment");
-//                    break;
-//                default:
-//                    break;
-//            }
-//        });
+        DirectorListView.setOnMouseClicked(event -> {
+            aktuelleOption = DirectorListView.getSelectionModel().getSelectedItem();
+        switch (aktuelleOption) {
+            case "Liste aller Abdeckungsbereiche anzeigen":
+                Controller.loadStage("ClientsAreas", event);
+                break;
+            case "Liste der Budgetkategorien anzeigen":
 
-        DirectorListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-                aktuelleOption = DirectorListView.getSelectionModel().getSelectedItem();
-            switch (aktuelleOption) {
-                case "Liste aller Abdeckungsbereiche anzeigen":
-                    Controller.loadStage("ClientsAreas", event);
-                    break;
-
-                case "Liste der Budgetkategorien anzeigen":
-
-                    break;
-                case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing":
-                    break;
-                case "Aktuelle Marketingmittel anzeigen":
-                    int funds = Methods.markFunds();
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Aktuelle Marketingmittel anzeigen");
-                    alert.setHeaderText(funds + "€");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
-                    break;
-                case "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an":
-                    break;
-                case "Erhöhen Sie das Gehalt eines Mitarbeiters":
-                    break;
-                case "Senken Sie das Gehalt eines Mitarbeiters":
-                    break;
-                case "Zeigen Sie die Liste der Geräte für den Bau von Objekten":
-                    Controller.loadStage("Equipment", event);
-                    break;
-                default:
-                    break;
-            }
-            }
+                break;
+            case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing":
+                break;
+            case "Aktuelle Marketingmittel anzeigen":
+                int funds = Methods.markFunds();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Aktuelle Marketingmittel anzeigen");
+                alert.setHeaderText(funds + "€");
+                alert.showAndWait().ifPresent(rs -> {
+                    if (rs == ButtonType.OK) {
+                        System.out.print("");
+                    }
+                });
+                break;
+            case "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an":
+                break;
+            case "Erhöhen Sie das Gehalt eines Mitarbeiters":
+                break;
+            case "Senken Sie das Gehalt eines Mitarbeiters":
+                break;
+            case "Zeigen Sie die Liste der Geräte für den Bau von Objekten":
+                Controller.loadStage("Equipment", event);
+                break;
+            default:
+                break;
+        }
         });
     }
 }

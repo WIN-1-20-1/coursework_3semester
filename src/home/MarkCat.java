@@ -20,7 +20,7 @@ public class MarkCat {
 
     @FXML
     void initialize() {
-        LogOutButton.setOnAction(Methods::logOut);
+        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
         catHomeButton.setOnAction(event -> {
             Controller.loadStage(Controller.position, event);
         });

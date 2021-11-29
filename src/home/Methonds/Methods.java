@@ -1,17 +1,12 @@
 package home.Methonds;
 
 import home.Database.Database;
-import javafx.event.ActionEvent;
-import javafx.scene.Node;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 
 public class Methods {
-    public static void logOut(ActionEvent event) {
-        ((Node)(event.getSource())).getScene().getWindow().hide();
-    }
 
     public static ArrayList<String> getTasks(ObjectId id){
         ArrayList<String> tasks = new ArrayList<String>();
@@ -26,8 +21,7 @@ public class Methods {
     public static String getSalary(ObjectId id) {
         Document founded = Database.users.find(new Document("_id", id)).first();
         assert founded != null;
-        String salary = String.valueOf(founded.getInteger("salary"));
-        return salary;
+        return String.valueOf(founded.getInteger("salary"));
     }
 
     public static ArrayList<String> getMarkCat() {

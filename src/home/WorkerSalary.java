@@ -16,13 +16,10 @@ public class WorkerSalary {
     @FXML
     private Button tasksHomeButton;
 
-    @FXML
-    private Label workerSalaryLabel;
-
 
     @FXML
     void initialize() {
-        LogOutButton.setOnAction(Methods::logOut);
+        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
         tasksHomeButton.setOnAction(event -> {
             Controller.loadStage(Controller.position, event);
         });

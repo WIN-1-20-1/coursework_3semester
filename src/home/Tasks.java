@@ -25,7 +25,7 @@ public class Tasks {
     @FXML
     void initialize() {
         taskLabel.setText("Aufgaben");
-        LogOutButton.setOnAction(Methods::logOut);
+        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
         tasksHomeButton.setOnAction(event -> {
             Controller.loadStage(Controller.position, event);
         });

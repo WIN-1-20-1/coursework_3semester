@@ -28,19 +28,16 @@ public class Worker  {
         workerLabel.setText( "Hallo, " + Controller.name);
 
         WorkerListView.getItems().addAll(option);
-        LogOutButton.setOnAction(Methods::logOut);
+        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
         WorkerListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
 
         });
-        WorkerListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                aktuelleOption = WorkerListView.getSelectionModel().getSelectedItem();
-                switch (aktuelleOption) {
-                    case "Liste meiner Aufgaben anzeigen" -> Controller.loadStage("tasks", event);
-                    case "Zeige mein Gehalt" -> Controller.loadStage("WorkerSalary", event);
-                    default -> {
-                    }
+        WorkerListView.setOnMouseClicked(event -> {
+            aktuelleOption = WorkerListView.getSelectionModel().getSelectedItem();
+            switch (aktuelleOption) {
+                case "Liste meiner Aufgaben anzeigen" -> Controller.loadStage("tasks", event);
+                case "Zeige mein Gehalt" -> Controller.loadStage("WorkerSalary", event);
+                default -> {
                 }
             }
         });
