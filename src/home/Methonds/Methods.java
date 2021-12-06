@@ -4,10 +4,7 @@ import com.mongodb.client.model.Filters;
 import home.Database.Database;
 import org.bson.Document;
 import org.bson.types.ObjectId;
-
 import java.util.ArrayList;
-
-import static java.lang.Integer.parseInt;
 
 public class Methods {
 
@@ -90,5 +87,57 @@ public class Methods {
             }
         }
         return res;
+    }
+
+    public static int getUsedBudgetForSalary(){
+        int res = 0;
+        for (Document document : Database.foundedUsers){
+            if (document.getInteger("salary") != null && document.getInteger("salary") > 0){
+                res += document.getInteger("salary");
+            }
+        }
+        return res;
+    }
+
+    public static ArrayList<String> getProjects(){
+        ArrayList<String> projects = new ArrayList<>();
+        for (Document document : Database.foundedBudgets){
+           if (document.getString("name of event") != null) projects.add(document.getString("name of event"));
+        }
+        return projects;
+    }
+
+    public static ArrayList<String> getWorkers() {
+        ArrayList<String> workers = new ArrayList<>();
+        for (Document document : Database.foundedUsers) {
+            if (document.getString("position").equals("worker")) workers.add(document.getString("name"));
+        }
+        return workers;
+    }
+
+    public static void increaseSalary(String name, int salary) {
+        int newSalary = 0;
+        for (Document document : Database.foundedUsers){
+            if (document.getString("name").equals(name)){
+                newSalary = document.getInteger("salary") + salary;
+            }
+        }
+        Database.users.updateOne(Filters.eq("name", name), new Document(
+                "$set",
+                new Document("salary", newSalary)
+        ));
+    }
+
+    public static void decreaseSalary(String name, int salary) {
+        int newSalary = 0;
+        for (Document document : Database.foundedUsers){
+            if (document.getString("name").equals(name)){
+                newSalary = document.getInteger("salary") - salary;
+            }
+        }
+        Database.users.updateOne(Filters.eq("name", name), new Document(
+                "$set",
+                new Document("salary", newSalary)
+        ));
     }
 }
