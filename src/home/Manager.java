@@ -1,8 +1,5 @@
 package home;
 
-import home.Methonds.Methods;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,9 +26,17 @@ public class Manager {
 
         ManagerListView.getItems().addAll(option);
         LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
-        ManagerListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+        ManagerListView.setOnMouseClicked(event -> {
             aktuelleOption = ManagerListView.getSelectionModel().getSelectedItem();
-            System.out.println(aktuelleOption);
+            switch (aktuelleOption) {
+                case "Liste der Mitarbeiter anzeigen" -> Controller.loadStage("WorkerList", event);
+                case "Aufgabenliste anzeigen" -> {}
+                case "Anzeigen einer Liste von Anweisungen für Mitarbeiter" -> {}
+                case "Liste aller Abdeckungsbereiche anzeigen" -> {}
+                case "Zeigen Sie den Betrag für Immobilien" -> {}
+                case "Berechnen Sie% nach Immobilienkategorie" -> {}
+                default -> {}
+            }
         });
     }
 }
