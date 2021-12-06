@@ -5,6 +5,8 @@ import home.Database.Database;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Methods {
 
@@ -139,5 +141,43 @@ public class Methods {
                 "$set",
                 new Document("salary", newSalary)
         ));
+    }
+
+    public static Map<String, Integer> calculateByCategory(){
+        Map<String, Integer> res = new HashMap<>();
+        int sell = 0;
+        int rent = 0;
+        for (Document document : Database.foundedObjects) {
+            if (document.getInteger("rentPrice") != null && document.getInteger("sellPrice") != null) {
+                sell++;
+                rent++;
+            } else if (document.getInteger("rentPrice") != null){
+                rent++;
+            } else if (document.getInteger("sellPrice") != null){
+                sell++;
+            }
+        }
+        res.put("Sell", sell);
+        res.put("Rent", rent);
+        return res;
+    }
+
+    public static Map<String, Integer> calculateTotalAmount(){
+        Map<String, Integer> res = new HashMap<>();
+        int sell = 0;
+        int rent = 0;
+        for (Document document : Database.foundedObjects) {
+            if (document.getInteger("rentPrice") != null && document.getInteger("sellPrice") != null) {
+                sell += document.getInteger("sellPrice");
+                rent += document.getInteger("rentPrice");
+            } else if (document.getInteger("rentPrice") != null){
+                rent += document.getInteger("rentPrice");
+            } else if (document.getInteger("sellPrice") != null){
+                sell += document.getInteger("sellPrice");
+            }
+        }
+        res.put("Sell", sell);
+        res.put("Rent", rent);
+        return res;
     }
 }

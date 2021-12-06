@@ -1,7 +1,6 @@
 package home.Database;
 
 //MongoDB imports
-
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.FindIterable;
@@ -31,5 +30,4 @@ public class Database {
     public static FindIterable<Document> foundedObjects = objects.find();
     public static FindIterable<Document> foundedBudgets = budget.find();
     public static FindIterable<Document> foundedEquipment = equipment.find();
-
 }
