@@ -1,7 +1,5 @@
 package home;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,7 +25,7 @@ public class SaleManager {
         SaleManagerLabel.setText( "Hallo, " + Controller.name);
         LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
         SaleManagerListView.getItems().addAll(option);
-        SaleManagerListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+        SaleManagerListView.setOnMouseClicked(event -> {
             aktuelleOption = SaleManagerListView.getSelectionModel().getSelectedItem();
             System.out.println(aktuelleOption);
         });

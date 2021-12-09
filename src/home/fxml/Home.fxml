@@ -27,7 +27,7 @@
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <PasswordField fx:id="SingUpPass" layoutX="193.0" layoutY="186.0" prefHeight="37.0" prefWidth="314.0" promptText="Password">
+                  <PasswordField fx:id="SingUpPass" layoutX="193.0" layoutY="186.0" prefHeight="37.0" prefWidth="314.0" promptText="Passwort">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -44,7 +44,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <Label layoutX="202.0" layoutY="14.0" text="Corse Work" textFill="WHITE">
+            <Label layoutX="142.0" layoutY="14.0" text="AIS &quot;Immobilien&quot;" textFill="WHITE">
                <font>
                   <Font name="Arial" size="56.0" />
                </font>
