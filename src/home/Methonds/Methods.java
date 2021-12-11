@@ -180,4 +180,6 @@ public class Methods {
         res.put("Rent", rent);
         return res;
     }
+
+
 }

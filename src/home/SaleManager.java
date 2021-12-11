@@ -27,7 +27,7 @@ public class SaleManager {
         SaleManagerListView.getItems().addAll(option);
         SaleManagerListView.setOnMouseClicked(event -> {
             aktuelleOption = SaleManagerListView.getSelectionModel().getSelectedItem();
-            System.out.println(aktuelleOption);
+
         });
     }
 }

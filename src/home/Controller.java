@@ -1,14 +1,13 @@
 package home;
 
+import home.Methonds.Methods;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.bson.Document;
@@ -45,7 +44,14 @@ public class Controller {
                     loadStage(userPosition, event);
 
                 } else {
-                    System.out.println("You entered wrong login or password");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Wrong login or pass");
+                    alert.showAndWait().ifPresent(rs -> {
+                        if (rs == ButtonType.OK) {
+                            System.out.print("");
+                        }
+                    });
                 }
         });
     }

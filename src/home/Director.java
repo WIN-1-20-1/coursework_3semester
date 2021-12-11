@@ -4,7 +4,7 @@ import home.Methonds.Methods;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class Director {
+public class Director{
 
     @FXML
     private Label DirectorLabel;
