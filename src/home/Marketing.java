@@ -1,12 +1,8 @@
 package home;
 
 import home.Methonds.Methods;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.*;
 
 public class Marketing {
 
@@ -19,7 +15,7 @@ public class Marketing {
     @FXML
     private Button LogOutButton;
 
-    String[] option = {"Liste aller Abdeckungsbereiche anzeigen", "Liste der Budgetkategorien anzeigen", "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing", "Aktuelle Marketingmittel anzeigen", "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an", "Erhöhen Sie das Gehalt eines Mitarbeiters", "Senken Sie das Gehalt eines Mitarbeiters", "Zeigen Sie die Liste der Geräte für den Bau von Objekten"};
+    String[] option = {"Liste der Kategorien für Marketing anzeigen", "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von marketing-Websites", "Marketingbudget anzeigen", "Geben Sie Ihr Budget für Werbung aus"};
 
     String aktuelleOption;
 
@@ -31,10 +27,29 @@ public class Marketing {
         LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
         MarketingListView.setOnMouseClicked(event -> {
             aktuelleOption = MarketingListView.getSelectionModel().getSelectedItem();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             switch (aktuelleOption) {
-                case "Liste aller Abdeckungsbereiche anzeigen" -> {}
-                case "" -> {}
-
+                case "Liste der Kategorien für Marketing anzeigen" -> {
+                    alert.setTitle("Kategorien");
+                    alert.setHeaderText("Marketing \n Salary");
+                    alert.showAndWait().ifPresent(rs -> {
+                        if (rs == ButtonType.OK) {
+                            System.out.print("");
+                        }
+                    });
+                }
+                case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von marketing-Websites" -> {}
+                case "Marketingbudget anzeigen" -> {
+                    alert.setTitle("Marketing");
+                    alert.setHeaderText(Methods.getBudget("marketing") + "€");
+                    alert.showAndWait().ifPresent(rs -> {
+                        if (rs == ButtonType.OK) {
+                            System.out.print("");
+                        }
+                    });
+                }
+                case "Geben Sie Ihr Budget für Werbung aus" -> {}
+                default -> {}
                 }
             });
     }

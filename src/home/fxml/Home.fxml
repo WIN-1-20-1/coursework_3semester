@@ -27,7 +27,7 @@
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <PasswordField fx:id="SingUpPass" layoutX="193.0" layoutY="186.0" prefHeight="37.0" prefWidth="314.0" promptText="Passwort">
+                  <PasswordField fx:id="SingUpPass"  onAction="#onEnter" layoutX="193.0" layoutY="186.0" prefHeight="37.0" prefWidth="314.0" promptText="Passwort">
                      <font>
                         <Font size="17.0" />
                      </font>

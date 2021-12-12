@@ -10,11 +10,11 @@
     <children>
         <AnchorPane prefHeight="86.0" prefWidth="900.0" style="-fx-background-color: #2e3348;">
             <children>
-                <Label fx:id="taskLabel" layoutX="345.0" layoutY="13.0" prefHeight="60.0" prefWidth="211.0" text="Ausrüstung" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="345.0" layoutY="13.0" prefHeight="60.0" prefWidth="211.0" text="Ausrüstung" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font size="40.0" />
                     </font></Label>
-                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Log out" />
+                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Abmelden" />
                 <Button fx:id="HomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Home" />
             </children>
         </AnchorPane>

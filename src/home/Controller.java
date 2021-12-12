@@ -1,6 +1,5 @@
 package home;
 
-import home.Methonds.Methods;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.bson.Document;
@@ -31,29 +31,38 @@ public class Controller {
     private PasswordField SingUpPass;
 
     @FXML
-    void initialize(){
-        authButton.setOnAction(event -> {
-            String login = SingUpLogin.getText().trim();
-            String password = SingUpPass.getText().trim();
-            Document founded = Database.users.find(new Document("login", login)).first();
-                if (founded != null && password.equals(founded.getString("password"))) {
-                    String userPosition = founded.getString("position");
-                    name = founded.getString("name");
-                    position = userPosition;
-                    id = founded.getObjectId("_id");
-                    loadStage(userPosition, event);
+    public void onEnter(ActionEvent event){
+        auth(event, SingUpLogin.getText().trim(), SingUpPass.getText().trim());
+    }
 
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Error");
-                    alert.setHeaderText("Wrong login or pass");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
+
+
+    @FXML
+    void initialize(){
+        String login = SingUpLogin.getText().trim();
+        String password = SingUpPass.getText().trim();
+        authButton.setOnAction(event ->auth(event, login, password));
+    }
+
+    public static void auth(ActionEvent event, String login , String password) {
+        Document founded = Database.users.find(new Document("login", login)).first();
+        if (founded != null && password.equals(founded.getString("password"))) {
+            String userPosition = founded.getString("position");
+            name = founded.getString("name");
+            position = userPosition;
+            id = founded.getObjectId("_id");
+            loadStage(userPosition, event);
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Error");
+            alert.setHeaderText("Wrong login or pass");
+            alert.showAndWait().ifPresent(rs -> {
+                if (rs == ButtonType.OK) {
+                    System.out.print("");
                 }
-        });
+            });
+        }
     }
 
     public static void loadStage(String fxml, MouseEvent event) {
@@ -79,6 +88,7 @@ public class Controller {
             e.printStackTrace();
         }
     }
+
 
 }
 

@@ -14,7 +14,7 @@
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Log out" />
+            <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Abmelden" />
          </children>
       </AnchorPane>
       <ListView fx:id="WorkerListView" fixedCellSize="40.0" layoutX="202.0" layoutY="113.0" prefHeight="319.0" prefWidth="498.0" />
