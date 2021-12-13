@@ -39,9 +39,7 @@ public class Controller {
 
     @FXML
     void initialize(){
-        String login = SingUpLogin.getText().trim();
-        String password = SingUpPass.getText().trim();
-        authButton.setOnAction(event ->auth(event, login, password));
+        authButton.setOnAction(event ->auth(event, SingUpLogin.getText().trim(), SingUpPass.getText().trim()));
     }
 
     public static void auth(ActionEvent event, String login , String password) {
@@ -55,8 +53,8 @@ public class Controller {
 
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Error");
-            alert.setHeaderText("Wrong login or pass");
+            alert.setTitle("Fehlermeldung");
+            alert.setHeaderText("Falsches Login oder Passwort");
             alert.showAndWait().ifPresent(rs -> {
                 if (rs == ButtonType.OK) {
                     System.out.print("");

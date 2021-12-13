@@ -2,6 +2,8 @@ package home.Methonds;
 
 import com.mongodb.client.model.Filters;
 import home.Database.Database;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import java.util.ArrayList;
@@ -181,5 +183,247 @@ public class Methods {
         return res;
     }
 
+    public static void createNewProject(String name, String place, int price) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if (getBudget("marketing") > price) {
+            Document document = new Document();
+            document.append("place", place);
+            document.append("type", "marketing");
+            document.append("cost", price);
+            document.append("name of event", name);
+            Database.budget.insertOne(document);
+            alert.setTitle("Erfolg");
+            alert.setHeaderText("Projekt erfolgreich erstellt");
+            alert.showAndWait().ifPresent(rs -> {
+                if (rs == ButtonType.OK) {
+                    System.out.print("");
+                }
+            });
+        } else {
+            alert.setTitle("Ahtung");
+            alert.setHeaderText("Nicht genug Geld. Sprechen Sie mit dem Regisseur.");
+            alert.showAndWait().ifPresent(rs -> {
+                if (rs == ButtonType.OK) {
+                    System.out.print("");
+                }
+            });
+        }
+
+    }
+
+    public static ArrayList<String> ShowAllClients() {
+        ArrayList<String> clients = new ArrayList<>();
+        for (Document document : Database.foundedClients) {
+            clients.add(document.getString("name"));
+        }
+        return clients;
+    }
+
+    public static ArrayList<String> ShowApartments() {
+        ArrayList<String> apartments = new ArrayList<>();
+        for (Document document : Database.foundedObjects) {
+            apartments.add(document.getString("address"));
+        }
+        return apartments;
+    }
+
+    public static ArrayList<String> ShowFreeApartments() {
+        ArrayList<String> apartments = new ArrayList<>();
+        for (Document document : Database.foundedObjects) {
+            if (document.getString("status").equals("free")) {
+                apartments.add(document.getString("address"));
+            }
+        }
+        return apartments;
+    }
+
+    public static ArrayList<String> ShowFreeApartmentsRent() {
+        ArrayList<String> apartments = new ArrayList<>();
+        for (Document document : Database.foundedObjects) {
+            if (document.getString("status").equals("free")) {
+                apartments.add(Integer.toString(document.getInteger("rentPrice")));
+            }
+        }
+        return apartments;
+    }
+
+    public static ArrayList<String> ShowFreeApartmentsSell() {
+        ArrayList<String> apartments = new ArrayList<>();
+        for (Document document : Database.foundedObjects) {
+            if (document.getString("status").equals("free")) {
+                apartments.add(Integer.toString(document.getInteger("sellPrice")));
+            }
+        }
+        return apartments;
+    }
+
+    public static boolean BoolFoundApartments(String foundedAddress) {
+        int step = 1;
+        for (Document document : Database.foundedObjects)
+            if (document.getString("address").contains(foundedAddress))
+                step++;
+        if (step != 2) {
+            return false;
+        } else
+            return true;
+    }
+
+    public static boolean BoolFoundClients(String foundedName) {
+        int step = 1;
+        for (Document document : Database.foundedClients)
+            if (document.getString("name").contains(foundedName))
+                step++;
+        if (step != 2) {
+            return false;
+        } else
+            return true;
+    }
+
+    public static Document FoundApartments(String foundedAddress) {
+        int step = 1;
+        for (Document document : Database.foundedObjects)
+            if (document.getString("address").contains(foundedAddress))
+                step++;
+        if (step == 2) {
+            for (Document document : Database.foundedObjects)
+                if (document.getString("address").contains(foundedAddress)) {
+                    return document;
+                }
+        }
+        return null;
+    }
+
+    public static Document FoundClient(String foundedName) {
+        int step = 1;
+        for (Document document : Database.foundedClients) {
+            if (document.getString("name").contains(foundedName))
+                step++;
+        }
+        if (step == 2) {
+            for (Document document : Database.foundedClients)
+                if (document.getString("name").contains(foundedName)) {
+                    return document;
+                }
+        }
+        return null;
+    }
+
+    public static boolean BoolRentApartment(Document Apartments, Document Client) {
+        if (Apartments != null && Client != null &&
+                Apartments.getString("status").equals("free") &&
+                Apartments.getInteger("rentPrice") != null) {
+            return true;
+        } else
+            return false;
+    }
+
+    public static boolean RentApartment(Document Apartments, Document Client) {
+        if (Apartments != null && Client != null &&
+                Apartments.getString("status").equals("free") &&
+                Apartments.getInteger("rentPrice") != null) {
+            Database.objects.updateOne(Filters.eq("_id", Apartments.getObjectId("_id")), new Document(
+                    "$set",
+                    new Document("status", "rent")
+            ));
+            Database.objects.updateOne(Filters.eq("_id", Apartments.getObjectId("_id")), new Document(
+                    "$set",
+                    new Document("owner", Client.getObjectId("_id"))
+            ));
+            return true;
+        } else
+            return false;
+    }
+
+    public static boolean BoolSellApartment(Document Apartments, Document Client) {
+        if (Apartments != null && Client != null &&
+                Apartments.getString("status").equals("free") &&
+                Apartments.getInteger("sellPrice") != null) {
+            return true;
+        } else
+            return false;
+    }
+
+    public static boolean SellApartment(Document Apartments, Document Client) {
+        if (Apartments != null && Client != null &&
+                Apartments.getString("status").equals("free") &&
+                Apartments.getInteger("sellPrice") != null) {
+            Database.objects.updateOne(Filters.eq("_id", Apartments.getObjectId("_id")), new Document(
+                    "$set",
+                    new Document("status", "sell")
+            ));
+            Database.objects.updateOne(Filters.eq("_id", Apartments.getObjectId("_id")), new Document(
+                    "$set",
+                    new Document("owner", Client.getObjectId("_id"))
+            ));
+            return true;
+        } else
+            return false;
+    }
+
+    public static String getApartmentRentPrise(String apartmentAddress) {
+        Document Apartment = FoundApartments(apartmentAddress);
+        if (Apartment.getInteger("rentPrice") != null) {
+            return Integer.toString(Apartment.getInteger("rentPrice"));
+        }
+        return "Не продается";
+    }
+
+    public static String getApartmentSellPrise(String apartmentAddress) {
+        Document Apartment = FoundApartments(apartmentAddress);
+        if (Apartment.getInteger("sellPrice") != null) {
+            return Integer.toString(Apartment.getInteger("sellPrice"));
+        }
+        return "Не продается";
+    }
+
+    public static String getApartmentStatus(String apartmentAddress) {
+        Document Apartment = FoundApartments(apartmentAddress);
+        return Apartment.getString("status");
+    }
+
+    public static String getApartmentOwner(String apartmentAddress) {
+        Document Apartment = FoundApartments(apartmentAddress);
+        if (Apartment.get("owner") == null) return "не продан";
+        for (Document document : Database.foundedClients) {
+            if (document.get("_id").equals(Apartment.get("owner"))) {
+                return document.getString("name");
+            }
+        }
+        return "";
+    }
+
+    public static String getClientPhone(String foundedName) {
+        for (Document document : Database.foundedClients)
+            if (document.getString("name").contains(foundedName)) {
+                return document.getString("phoneNumber");
+            }
+        return null;
+    }
+
+    public static String getClientPlace(String foundedName) {
+        for (Document document : Database.foundedClients)
+            if (document.getString("name").contains(foundedName)) {
+                return document.getString("place");
+            }
+        return null;
+    }
+
+    public static ArrayList<String> getClientApartments(String foundedName) {
+        Document Client = null;
+        for (Document document : Database.foundedClients) {
+            if (document.getString("name").contains(foundedName)) {
+                Client = document;
+            }
+        }
+        ArrayList<String> Apartments = new ArrayList<>();
+        for (Document document : Database.foundedObjects) {
+            Object owner = document.get("owner");
+            Object client = Client.get("_id");
+
+            if (owner.equals(client))
+                Apartments.add(document.getString("address"));
+        }
+        return Apartments;
+    }
 
 }

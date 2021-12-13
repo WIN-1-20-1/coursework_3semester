@@ -48,7 +48,7 @@ public class Marketing {
                         }
                     });
                 }
-                case "Geben Sie Ihr Budget für Werbung aus" -> {}
+                case "Geben Sie Ihr Budget für Werbung aus" -> Controller.loadStage("Promotion", event);
                 default -> {}
                 }
             });
