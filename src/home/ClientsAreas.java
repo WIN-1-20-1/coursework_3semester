@@ -22,8 +22,8 @@ public class ClientsAreas {
     @FXML
     void initialize() {
         AreasListView.getItems().addAll(stadte);
-        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
-        HomeButton.setOnAction(event -> Controller.loadStage(Controller.position, event));
+        LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
+        HomeButton.setOnAction(event -> Methods.loadStage(Controller.position, event));
         AreasListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             aktuelleOption = AreasListView.getSelectionModel().getSelectedItem();
             double result = Methods.calculateClietnsPerArea(aktuelleOption);

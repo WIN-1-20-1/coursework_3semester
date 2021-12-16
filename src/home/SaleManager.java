@@ -4,10 +4,7 @@ import home.Methonds.Methods;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 
 public class SaleManager {
 
@@ -30,15 +27,15 @@ public class SaleManager {
     @FXML
     void initialize() {
         SaleManagerLabel.setText("Hallo, " + Controller.name);
-        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
+        LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
         SaleManagerListView.getItems().addAll(option);
         SaleManagerListView.setOnMouseClicked(event -> {
             aktuelleOption = SaleManagerListView.getSelectionModel().getSelectedItem();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             switch (aktuelleOption) {
-                case "Liste aller Abdeckungsbereiche anzeigen" -> Controller.loadStage("RentSell", event);
-                case "Liste der Budgetkategorien anzeigen" -> Controller.loadStage("ClientList", event);
-                case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing" -> Controller.loadStage("ApartmentList", event);
+                case "Liste aller Abdeckungsbereiche anzeigen" -> Methods.loadStage("RentSell", event);
+                case "Liste der Budgetkategorien anzeigen" -> Methods.loadStage("ClientList", event);
+                case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing" -> Methods.loadStage("ApartmentList", event);
             }
         });
     }

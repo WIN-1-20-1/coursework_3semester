@@ -26,14 +26,14 @@ public class Manager {
         ManagerLabel.setText( "Hallo, " + Controller.name);
 
         ManagerListView.getItems().addAll(option);
-        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
+        LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         ManagerListView.setOnMouseClicked(event -> {
             aktuelleOption = ManagerListView.getSelectionModel().getSelectedItem();
             switch (aktuelleOption) {
-                case "Liste der Mitarbeiter anzeigen" -> Controller.loadStage("WorkerList", event);
-                case "Aufgabenliste anzeigen" -> Controller.loadStage("Tasks", event);
-                case "Liste aller Abdeckungsbereiche anzeigen" -> Controller.loadStage("ClientsAreas", event);
+                case "Liste der Mitarbeiter anzeigen" -> Methods.loadStage("WorkerList", event);
+                case "Aufgabenliste anzeigen" -> Methods.loadStage("Tasks", event);
+                case "Liste aller Abdeckungsbereiche anzeigen" -> Methods.loadStage("ClientsAreas", event);
                 case "Zeigen Sie den Betrag für Immobilien" -> {
                     Map<String, Integer> category = Methods.calculateByCategory();
                     alert.setTitle("Zeigen Sie den Betrag für Immobilien");

@@ -22,13 +22,13 @@ public class Director{
     @FXML
     void initialize(){
         DirectorLabel.setText( "Hallo, " + Controller.name);
-        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
+        LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
         DirectorListView.getItems().addAll(option);
         DirectorListView.setOnMouseClicked(event -> {
             aktuelleOption = DirectorListView.getSelectionModel().getSelectedItem();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             switch (aktuelleOption) {
-                case "Liste aller Abdeckungsbereiche anzeigen" -> Controller.loadStage("ClientsAreas", event);
+                case "Liste aller Abdeckungsbereiche anzeigen" -> Methods.loadStage("ClientsAreas", event);
                 case "Budget für Marketing" -> {
                     alert.setTitle("Marketing");
                     alert.setHeaderText(Methods.getBudget("marketing") + "€");
@@ -47,7 +47,7 @@ public class Director{
                         }
                     });
                 }
-                case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing" -> Controller.loadStage("Projects", event);
+                case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing" -> Methods.loadStage("Projects", event);
                 case "Aktuelle Marketingmittel anzeigen" -> {
                     alert.setTitle("Aktuelle Marketingmittel anzeigen");
                     alert.setHeaderText(Methods.markFunds() + "€");
@@ -66,8 +66,8 @@ public class Director{
                         }
                     });
                 }
-                case "Gehalt eines Mitarbeiters ändern" -> Controller.loadStage("ChangeSalary", event);
-                case "Zeigen Sie die Liste der Geräte für den Bau von Objekten" -> Controller.loadStage("Equipment", event);
+                case "Gehalt eines Mitarbeiters ändern" -> Methods.loadStage("ChangeSalary", event);
+                case "Zeigen Sie die Liste der Geräte für den Bau von Objekten" -> Methods.loadStage("Equipment", event);
                 default -> {
                 }
             }

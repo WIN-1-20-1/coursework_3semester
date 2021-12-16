@@ -24,7 +24,7 @@ public class Marketing {
         MarketingLabel.setText( "Hallo, " + Controller.name);
 
         MarketingListView.getItems().addAll(option);
-        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
+        LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
         MarketingListView.setOnMouseClicked(event -> {
             aktuelleOption = MarketingListView.getSelectionModel().getSelectedItem();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -48,7 +48,7 @@ public class Marketing {
                         }
                     });
                 }
-                case "Geben Sie Ihr Budget für Werbung aus" -> Controller.loadStage("Promotion", event);
+                case "Geben Sie Ihr Budget für Werbung aus" -> Methods.loadStage("Promotion", event);
                 default -> {}
                 }
             });

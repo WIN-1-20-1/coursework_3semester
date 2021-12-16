@@ -33,8 +33,8 @@ public class ChangeSalary {
     String aktuelleOption;
     @FXML
     void initialize() {
-        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
-        HomeButton.setOnAction(event -> Controller.loadStage(Controller.position, event));
+        LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
+        HomeButton.setOnAction(event -> Methods.loadStage(Controller.position, event));
         changeListView.getItems().addAll(Methods.getWorkers());
         changeListView.setOnMouseClicked(event -> {
             aktuelleOption = changeListView.getSelectionModel().getSelectedItem();

@@ -26,8 +26,8 @@ public class Tasks {
     @FXML
     void initialize() {
         taskLabel.setText("Aufgaben");
-        LogOutButton.setOnAction(event -> Controller.loadStage("Home", event));
-        tasksHomeButton.setOnAction(event -> Controller.loadStage(Controller.position, event));
+        LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
+        tasksHomeButton.setOnAction(event -> Methods.loadStage(Controller.position, event));
         ArrayList<Document> tasks = Methods.getTasks();
         if (tasks.size() > 0) {
             for (Document document : tasks) {
