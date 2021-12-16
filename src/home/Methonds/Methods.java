@@ -481,4 +481,15 @@ public class Methods {
         return Apartments;
     }
 
+    public static void alert(String title, String text){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(text);
+        alert.showAndWait().ifPresent(rs -> {
+            if (rs == ButtonType.OK) {
+                System.out.print("");
+            }
+        });
+    }
+
 }

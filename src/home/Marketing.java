@@ -22,32 +22,15 @@ public class Marketing {
     @FXML
     void initialize(){
         MarketingLabel.setText( "Hallo, " + Controller.name);
-
         MarketingListView.getItems().addAll(option);
         LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
         MarketingListView.setOnMouseClicked(event -> {
             aktuelleOption = MarketingListView.getSelectionModel().getSelectedItem();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             switch (aktuelleOption) {
-                case "Liste der Kategorien für Marketing anzeigen" -> {
-                    alert.setTitle("Kategorien");
-                    alert.setHeaderText("Marketing \n Salary");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
-                }
+                case "Liste der Kategorien für Marketing anzeigen" -> Methods.alert("Kategorien", "Marketing \n Salary");
                 case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von marketing-Websites" -> {}
-                case "Marketingbudget anzeigen" -> {
-                    alert.setTitle("Marketing");
-                    alert.setHeaderText(Methods.getBudget("marketing") + "€");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
-                }
+                case "Marketingbudget anzeigen" -> Methods.alert("Marketing", Methods.getBudget("marketing") + "€");
                 case "Geben Sie Ihr Budget für Werbung aus" -> Methods.loadStage("Promotion", event);
                 default -> {}
                 }

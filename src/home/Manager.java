@@ -24,10 +24,8 @@ public class Manager {
     @FXML
     void initialize(){
         ManagerLabel.setText( "Hallo, " + Controller.name);
-
         ManagerListView.getItems().addAll(option);
         LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         ManagerListView.setOnMouseClicked(event -> {
             aktuelleOption = ManagerListView.getSelectionModel().getSelectedItem();
             switch (aktuelleOption) {
@@ -36,23 +34,11 @@ public class Manager {
                 case "Liste aller Abdeckungsbereiche anzeigen" -> Methods.loadStage("ClientsAreas", event);
                 case "Zeigen Sie den Betrag für Immobilien" -> {
                     Map<String, Integer> category = Methods.calculateByCategory();
-                    alert.setTitle("Zeigen Sie den Betrag für Immobilien");
-                    alert.setHeaderText("Fur Rent " + category.get("Rent") + "\n Fur Sell " + category.get("Sell"));
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
+                    Methods.alert("Zeigen Sie den Betrag für Immobilien", "Fur Rent " + category.get("Rent") + "\n Fur Sell " + category.get("Sell"));
                 }
                 case "Berechnen Sie% nach Immobilienkategorie" -> {
                     Map<String, Integer> category = Methods.calculateTotalAmount();
-                    alert.setTitle("Zeigen Sie den Betrag für Immobilien");
-                    alert.setHeaderText("Fur Rent " + category.get("Rent") + "€" + "\n Fur Sell " + category.get("Sell") + "€");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
+                    Methods.alert("Zeigen Sie den Betrag für Immobilien", "Fur Rent " + category.get("Rent") + "€" + "\n Fur Sell " + category.get("Sell") + "€");
                 }
                 default -> {}
             }

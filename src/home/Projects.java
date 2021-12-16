@@ -19,9 +19,7 @@ public class Projects {
     @FXML
     void initialize() {
         LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
-        HomeButton.setOnAction(event -> {
-            Methods.loadStage(Controller.position, event);
-        });
+        HomeButton.setOnAction(event -> Methods.loadStage(Controller.position, event));
         projectsListView.getItems().addAll(Methods.getProjects());
     }
 }

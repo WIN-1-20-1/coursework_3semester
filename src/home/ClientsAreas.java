@@ -27,14 +27,7 @@ public class ClientsAreas {
         AreasListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             aktuelleOption = AreasListView.getSelectionModel().getSelectedItem();
             double result = Methods.calculateClietnsPerArea(aktuelleOption);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Ergebnis");
-            alert.setHeaderText("Die Anzahl der Kunden in " + aktuelleOption + " ist " + Math.floor(result) + "%");
-            alert.showAndWait().ifPresent(rs -> {
-                if (rs == ButtonType.OK) {
-                    System.out.print("");
-                }
-            });
+            Methods.alert("Ergebnis!","Die Anzahl der Kunden in " + aktuelleOption + " ist " + Math.floor(result) + "%");
         });
     }
 

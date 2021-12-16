@@ -50,8 +50,6 @@ public class RentSell {
         clientListView.getItems().addAll(Methods.ShowAllClients());
         apartmentListView.getItems().addAll(Methods.ShowFreeApartments());
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
         clientListView.setOnMouseClicked(event -> {
             clientOption = clientListView.getSelectionModel().getSelectedItem();
             clientNameLabel.setText(clientOption);
@@ -70,32 +68,14 @@ public class RentSell {
                 Document Client = Methods.FoundClient(clientOption);
                 if (Methods.BoolRentApartment(Apartment, Client)) {
                     Methods.RentApartment(Apartment, Client);
-                    alert.setTitle("Апртаменты успешно арендованы!");
-                    alert.setHeaderText("Спасибо, что выбрали нас");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
+                    Methods.alert("Апатраменты успешно арендованы!","Спасибо, что выбрали нас");
                     apartmentListView.getItems().clear();
                     apartmentListView.getItems().addAll(Methods.ShowFreeApartments());
                 } else {
-                    alert.setTitle("Внимание!");
-                    alert.setHeaderText("Не удалось арендовать апартоменты");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
+                    Methods.alert("Внимание!","Не удалось арендовать апартаменты");
                 }
             } else {
-                alert.setTitle("Внимание!");
-                alert.setHeaderText("Данные не совпадают!");
-                alert.showAndWait().ifPresent(rs -> {
-                    if (rs == ButtonType.OK) {
-                        System.out.print("");
-                    }
-                });
+                Methods.alert("Внимание!", "Данные не совпадают");
             }
         });
 
@@ -105,32 +85,14 @@ public class RentSell {
                 Document Client = Methods.FoundClient(clientOption);
                 if (Methods.BoolSellApartment(Apartment, Client)) {
                     Methods.SellApartment(Apartment, Client);
-                    alert.setTitle("Апртаменты успешно арендованы!");
-                    alert.setHeaderText("Спасибо, что выбрали нас");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
+                    Methods.alert("Апатраменты успешно арендованы!","Спасибо, что выбрали нас");
                     apartmentListView.getItems().clear();
                     apartmentListView.getItems().addAll(Methods.ShowFreeApartments());
                 } else {
-                    alert.setTitle("Внимание!");
-                    alert.setHeaderText("Не удалось купить апартоменты");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
+                    Methods.alert("Внимание!","Не удалось купить апартаменты");
                 }
             } else {
-                alert.setTitle("Внимание!");
-                alert.setHeaderText("Данные не совпадают!");
-                alert.showAndWait().ifPresent(rs -> {
-                    if (rs == ButtonType.OK) {
-                        System.out.print("");
-                    }
-                });
+                Methods.alert("Внимание!","Данные не совпадают");
             }
         });
     }

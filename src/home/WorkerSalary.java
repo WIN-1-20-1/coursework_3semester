@@ -16,13 +16,10 @@ public class WorkerSalary {
     @FXML
     private Button tasksHomeButton;
 
-
     @FXML
     void initialize() {
         LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
-        tasksHomeButton.setOnAction(event -> {
-            Methods.loadStage(Controller.position, event);
-        });
+        tasksHomeButton.setOnAction(event -> Methods.loadStage(Controller.position, event));
         WorkerSalaryText.setText("Gehalt ist " + Methods.getSalary(Controller.id) + "€");
     }
 }

@@ -26,50 +26,16 @@ public class Director{
         DirectorListView.getItems().addAll(option);
         DirectorListView.setOnMouseClicked(event -> {
             aktuelleOption = DirectorListView.getSelectionModel().getSelectedItem();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             switch (aktuelleOption) {
                 case "Liste aller Abdeckungsbereiche anzeigen" -> Methods.loadStage("ClientsAreas", event);
-                case "Budget für Marketing" -> {
-                    alert.setTitle("Marketing");
-                    alert.setHeaderText(Methods.getBudget("marketing") + "€");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
-                }
-                case "Budget für Gehälter" -> {
-                    alert.setTitle("Gehälter");
-                    alert.setHeaderText(Methods.getBudget("salary") + "€");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
-                }
+                case "Budget für Marketing" -> Methods.alert("Marketing", Methods.getBudget("marketing") + "€");
+                case "Budget für Gehälter" -> Methods.alert("Gehälter", Methods.getBudget("salary") + "€");
                 case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing" -> Methods.loadStage("Projects", event);
-                case "Aktuelle Marketingmittel anzeigen" -> {
-                    alert.setTitle("Aktuelle Marketingmittel anzeigen");
-                    alert.setHeaderText(Methods.markFunds() + "€");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
-                }
-                case "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an" -> {
-                    alert.setTitle("Ausgegebenes Budget für Gehalt");
-                    alert.setHeaderText(Methods.getUsedBudgetForSalary() + "€");
-                    alert.showAndWait().ifPresent(rs -> {
-                        if (rs == ButtonType.OK) {
-                            System.out.print("");
-                        }
-                    });
-                }
+                case "Aktuelle Marketingmittel anzeigen" -> Methods.alert("Aktuelle Marketingmittel anzeigen", Methods.markFunds() + "€");
+                case "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an" -> Methods.alert("Ausgegebenes Budget für Gehalt", Methods.getUsedBudgetForSalary() + "€");
                 case "Gehalt eines Mitarbeiters ändern" -> Methods.loadStage("ChangeSalary", event);
                 case "Zeigen Sie die Liste der Geräte für den Bau von Objekten" -> Methods.loadStage("Equipment", event);
-                default -> {
-                }
+                default -> {}
             }
         });
     }
