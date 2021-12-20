@@ -11,7 +11,7 @@ import org.bson.Document;
 public class Database {
     //Verbindung zur cloud
     public static MongoClient client = new MongoClient(new MongoClientURI("mongodb+srv://chermashev:win120@cluster0.pgvgc.mongodb.net/test"));
-
+    
     //Verbindung zur database
     public static MongoDatabase database = client.getDatabase("documents");
 

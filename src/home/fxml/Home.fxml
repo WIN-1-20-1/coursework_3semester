@@ -22,7 +22,7 @@
          <children>
             <AnchorPane layoutY="89.0" prefHeight="311.0" prefWidth="700.0" style="-fx-background-color: #fafafa;">
                <children>
-                  <TextField fx:id="SingUpLogin" layoutX="193.0" layoutY="111.0" prefHeight="37.0" prefWidth="314.0" promptText="Login">
+                  <TextField fx:id="SingUpLogin" onAction="#onEnter" layoutX="193.0" layoutY="111.0" prefHeight="37.0" prefWidth="314.0" promptText="Login">
                      <font>
                         <Font size="17.0" />
                      </font>

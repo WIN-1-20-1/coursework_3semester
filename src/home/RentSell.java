@@ -68,14 +68,14 @@ public class RentSell {
                 Document Client = Methods.FoundClient(clientOption);
                 if (Methods.BoolRentApartment(Apartment, Client)) {
                     Methods.RentApartment(Apartment, Client);
-                    Methods.alert("Апатраменты успешно арендованы!","Спасибо, что выбрали нас");
+                    Methods.alert("Wohnungen erfolgreich vermietet!","Danke, dass Sie uns gewählt haben");
                     apartmentListView.getItems().clear();
                     apartmentListView.getItems().addAll(Methods.ShowFreeApartments());
                 } else {
-                    Methods.alert("Внимание!","Не удалось арендовать апартаменты");
+                    Methods.alert("Achtung!","Die Wohnung konnte nicht gemietet werden");
                 }
             } else {
-                Methods.alert("Внимание!", "Данные не совпадают");
+                Methods.alert("Achtung!", "Die Daten stimmen nicht überein");
             }
         });
 
@@ -85,14 +85,14 @@ public class RentSell {
                 Document Client = Methods.FoundClient(clientOption);
                 if (Methods.BoolSellApartment(Apartment, Client)) {
                     Methods.SellApartment(Apartment, Client);
-                    Methods.alert("Апатраменты успешно арендованы!","Спасибо, что выбрали нас");
+                    Methods.alert("Wohnungen erfolgreich vermietet!","Danke, dass Sie uns gewählt haben");
                     apartmentListView.getItems().clear();
                     apartmentListView.getItems().addAll(Methods.ShowFreeApartments());
                 } else {
-                    Methods.alert("Внимание!","Не удалось купить апартаменты");
+                    Methods.alert("Achtung!","Die Wohnung konnte nicht gekauft werden");
                 }
             } else {
-                Methods.alert("Внимание!","Данные не совпадают");
+                Methods.alert("Achtung!","Die Daten stimmen nicht überein");
             }
         });
     }

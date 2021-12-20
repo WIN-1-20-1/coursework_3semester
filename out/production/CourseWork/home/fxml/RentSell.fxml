@@ -10,17 +10,17 @@
     <children>
         <AnchorPane prefHeight="86.0" prefWidth="1200.0" style="-fx-background-color: #2e3348;">
             <children>
-                <Label layoutX="436.0" layoutY="2.0" prefHeight="83.0" prefWidth="328.0" text="Rent and Sell" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="327.0" layoutY="2.0" prefHeight="83.0" prefWidth="546.0" text="Mieten und verkaufen" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font size="56.0" />
                     </font>
                 </Label>
-                <Button fx:id="LogOutButton" layoutX="1079.0" layoutY="31.0" mnemonicParsing="false" text="Log out" />
+                <Button fx:id="LogOutButton" layoutX="1079.0" layoutY="31.0" mnemonicParsing="false" text="Abmelden" />
                 <Button fx:id="HomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Home" />
             </children>
         </AnchorPane>
-        <Button fx:id="Rent" layoutX="1064.0" layoutY="634.0" mnemonicParsing="false" text="Rent" />
-        <Button fx:id="Sell" layoutX="1067.0" layoutY="601.0" mnemonicParsing="false" text="Sell" />
+        <Button fx:id="Rent" layoutX="1075.0" layoutY="634.0" mnemonicParsing="false" text="Mieten" />
+        <Button fx:id="Sell" layoutX="1067.0" layoutY="601.0" mnemonicParsing="false" text="Verkaufen" />
         <ListView fx:id="clientListView" layoutX="76.0" layoutY="113.0" prefHeight="444.0" prefWidth="525.0" />
         <ListView fx:id="apartmentListView" layoutX="600.0" layoutY="113.0" prefHeight="444.0" prefWidth="525.0" />
         <Label fx:id="clientNameLabel" layoutX="76.0" layoutY="557.0" prefHeight="40.0" prefWidth="525.0">
@@ -33,22 +33,22 @@
                 <Font size="27.0" />
             </font>
         </Label>
-      <Label fx:id="rentPrise" layoutX="797.0" layoutY="626.0" prefHeight="40.0" prefWidth="263.0">
+      <Label fx:id="rentPrise" layoutX="809.0" layoutY="626.0" prefHeight="40.0" prefWidth="251.0">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="601.0" layoutY="626.0" prefHeight="40.0" prefWidth="196.0" text="Rent Prise($):">
+      <Label layoutX="601.0" layoutY="626.0" prefHeight="40.0" prefWidth="208.0" text="Mietpreis (€):">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label fx:id="sellPrise" layoutX="797.0" layoutY="593.0" prefHeight="40.0" prefWidth="263.0">
+      <Label fx:id="sellPrise" layoutX="809.0" layoutY="593.0" prefHeight="40.0" prefWidth="251.0">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="600.0" layoutY="593.0" prefHeight="40.0" prefWidth="196.0" text="Sell Prise($):">
+      <Label layoutX="600.0" layoutY="593.0" prefHeight="40.0" prefWidth="208.0" text="Verkaufspreis (€):">
          <font>
             <Font size="27.0" />
          </font>

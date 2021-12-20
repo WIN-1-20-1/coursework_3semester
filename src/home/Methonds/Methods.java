@@ -420,7 +420,7 @@ public class Methods {
         if (Apartment.getInteger("rentPrice") != null) {
             return Integer.toString(Apartment.getInteger("rentPrice"));
         }
-        return "Не продается";
+        return "Nicht verkauft";
     }
 
     public static String getApartmentSellPrise(String apartmentAddress) {
@@ -428,17 +428,29 @@ public class Methods {
         if (Apartment.getInteger("sellPrice") != null) {
             return Integer.toString(Apartment.getInteger("sellPrice"));
         }
-        return "Не продается";
+        return "Nicht verkauft";
     }
 
     public static String getApartmentStatus(String apartmentAddress) {
         Document Apartment = FoundApartments(apartmentAddress);
+        switch (Apartment.getString("status")){
+            case "rented":
+                return "mieten";
+            case "rent":
+                return "mieten";
+            case "sell":
+                return "verkauft";
+            case "sold":
+                return "verkauft";
+            case "free":
+                return "kostenlos";
+        }
         return Apartment.getString("status");
     }
 
     public static String getApartmentOwner(String apartmentAddress) {
         Document Apartment = FoundApartments(apartmentAddress);
-        if (Apartment.get("owner") == null) return "не продан";
+        if (Apartment.get("owner") == null) return "nicht verkauft";
         for (Document document : Database.foundedClients) {
             if (document.get("_id").equals(Apartment.get("owner"))) {
                 return document.getString("name");
