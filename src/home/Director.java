@@ -15,7 +15,7 @@ public class Director{
     @FXML
     private Button LogOutButton;
 
-    String[] option = {"Liste aller Abdeckungsbereiche anzeigen", "Budget für Marketing", "Budget für Gehälter", "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing", "Aktuelle Marketingmittel anzeigen", "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an", "Gehalt eines Mitarbeiters ändern", "Zeigen Sie die Liste der Geräte für den Bau von Objekten"};
+    String[] option = {"Liste aller Abdeckungsbereiche anzeigen", "Budget für Marketing", "Budget für Gehälter", "Werbeintegration", "Das richtige Budget für Marketing", "Das richtige Budget für die Gehälter", "Gehalt eines Mitarbeiters ändern", "Zeigen Sie die Liste der Geräte für den Bau von Objekten"};
 
     String aktuelleOption;
 
@@ -30,9 +30,9 @@ public class Director{
                 case "Liste aller Abdeckungsbereiche anzeigen" -> Methods.loadStage("ClientsAreas", event);
                 case "Budget für Marketing" -> Methods.alert("Marketing", Methods.getBudget("marketing") + "€");
                 case "Budget für Gehälter" -> Methods.alert("Gehälter", Methods.getBudget("salary") + "€");
-                case "Zeigen Sie das zugewiesene budget für eine bestimmte Kategorie von Orten für marketing" -> Methods.loadStage("Projects", event);
-                case "Aktuelle Marketingmittel anzeigen" -> Methods.alert("Aktuelle Marketingmittel anzeigen", Methods.markFunds() + "€");
-                case "Zeigen Sie das für das Gehalt erforderliche Gesamtbudget an" -> Methods.alert("Ausgegebenes Budget für Gehalt", Methods.getUsedBudgetForSalary() + "€");
+                case "Werbeintegration" -> Methods.loadStage("Projects", event);
+                case "Das richtige Budget für die Marketing" -> Methods.alert("Aktuelle Marketingmittel anzeigen", Methods.markFunds() + "€");
+                case "Das richtige Budget für die Gehälter" -> Methods.alert("Ausgegebenes Budget für Gehalt", Methods.getUsedBudgetForSalary() + "€");
                 case "Gehalt eines Mitarbeiters ändern" -> Methods.loadStage("ChangeSalary", event);
                 case "Zeigen Sie die Liste der Geräte für den Bau von Objekten" -> Methods.loadStage("Equipment", event);
                 default -> {}
