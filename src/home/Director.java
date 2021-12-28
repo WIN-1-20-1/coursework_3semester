@@ -15,7 +15,7 @@ public class Director{
     @FXML
     private Button LogOutButton;
 
-    String[] option = {"Liste aller Abdeckungsbereiche anzeigen", "Budget für Marketing", "Budget für Gehälter", "Werbeintegration", "Das richtige Budget für Marketing", "Das richtige Budget für die Gehälter", "Gehalt eines Mitarbeiters ändern", "Zeigen Sie die Liste der Geräte für den Bau von Objekten"};
+    String[] option = {"Liste aller Abdeckungsbereiche anzeigen", "Budget für Marketing", "Budget für Gehälter", "Werbeintegration", "Das richtige Budget für die Marketing", "Das richtige Budget für die Gehälter", "Gehalt eines Mitarbeiters ändern", "Zeigen Sie die Liste der Geräte für den Bau von Objekten"};
 
     String aktuelleOption;
 
