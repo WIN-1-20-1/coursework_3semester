@@ -435,15 +435,15 @@ public class Methods {
         Document Apartment = FoundApartments(apartmentAddress);
         switch (Apartment.getString("status")){
             case "rented":
-                return "mieten";
+                return "арендовано";
             case "rent":
-                return "mieten";
+                return "на оренду";
             case "sell":
-                return "verkauft";
+                return "на продажу";
             case "sold":
-                return "verkauft";
+                return "продано";
             case "free":
-                return "kostenlos";
+                return "свободно";
         }
         return Apartment.getString("status");
     }
