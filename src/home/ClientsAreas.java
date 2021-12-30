@@ -15,7 +15,7 @@ public class ClientsAreas {
     @FXML
     private Button LogOutButton;
 
-    String[] stadte = {"Бишкек", "Чуй", "Талас", "Джалал-Абад", "Ош", "Нарын", "Ыссык-Куль", "Баткен"};
+    String[] stadte = {"Bishkek","Chui", "Talas", "Jalal-Abad", "Osh", "Naryn", "Issyk-Kul", "Batken"};
 
     String aktuelleOption;
 
