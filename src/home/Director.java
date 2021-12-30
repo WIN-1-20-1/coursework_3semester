@@ -15,7 +15,7 @@ public class Director{
     @FXML
     private Button LogOutButton;
 
-    String[] option = {"Liste aller Abdeckungsbereiche anzeigen", "Budget für Marketing", "Budget für Gehälter", "Werbeintegration", "Das richtige Budget für die Marketing", "Das richtige Budget für die Gehälter", "Gehalt eines Mitarbeiters ändern", "Zeigen Sie die Liste der Geräte für den Bau von Objekten"};
+    String[] option = {"Liste aller Abdeckungsbereiche anzeigen", "Budget für Marketing", "Budget für Gehälter", "Werbeintegration", "Das richtige Budget für die Marketing", "Das richtige Budget für die Gehälter", "Gehalt eines Mitarbeiters ändern", "Ausrüstung"};
 
     String aktuelleOption;
 
@@ -34,7 +34,7 @@ public class Director{
                 case "Das richtige Budget für die Marketing" -> Methods.alert("Aktuelle Marketingmittel anzeigen", Methods.markFunds() + "€");
                 case "Das richtige Budget für die Gehälter" -> Methods.alert("Ausgegebenes Budget für Gehalt", Methods.getUsedBudgetForSalary() + "€");
                 case "Gehalt eines Mitarbeiters ändern" -> Methods.loadStage("ChangeSalary", event);
-                case "Zeigen Sie die Liste der Geräte für den Bau von Objekten" -> Methods.loadStage("Equipment", event);
+                case "Ausrüstung" -> Methods.loadStage("Equipment", event);
                 default -> {}
             }
         });
