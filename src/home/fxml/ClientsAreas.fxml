@@ -10,12 +10,12 @@
     <children>
         <AnchorPane prefHeight="86.0" prefWidth="900.0" style="-fx-background-color: #2e3348;">
             <children>
-                <Label fx:id="taskLabel" layoutX="387.0" layoutY="11.0" prefHeight="65.0" prefWidth="127.0" text="Städte" textAlignment="CENTER" textFill="WHITE">
+                <Label fx:id="taskLabel" layoutX="356.0" layoutY="11.0" prefHeight="65.0" prefWidth="189.0" text="Регионы:" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font size="44.0" />
                     </font></Label>
-                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Abmelden" />
-                <Button fx:id="HomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Home" />
+                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Выйти" />
+                <Button fx:id="HomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Домоцй" />
             </children>
         </AnchorPane>
         <ListView fx:id="AreasListView" fixedCellSize="40.0" layoutX="202.0" layoutY="113.0" prefHeight="319.0" prefWidth="498.0" />

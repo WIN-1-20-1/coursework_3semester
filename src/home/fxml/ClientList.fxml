@@ -10,17 +10,17 @@
     <children>
         <AnchorPane prefHeight="86.0" prefWidth="900.0" style="-fx-background-color: #2e3348;">
             <children>
-                <Label layoutX="301.0" layoutY="2.0" prefHeight="83.0" prefWidth="298.0" text="Kundenliste" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="336.0" layoutY="2.0" prefHeight="83.0" prefWidth="228.0" text="Клиенты" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font size="56.0" />
                     </font>
                 </Label>
-                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Abmelden" />
-                <Button fx:id="HomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Home" />
+                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Выйти" />
+                <Button fx:id="HomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Домой" />
             </children>
         </AnchorPane>
         <ListView fx:id="clientsLV" layoutX="50.0" layoutY="117.0" prefHeight="400.0" prefWidth="400.0" />
-        <Label fx:id="workerNameLabel" layoutX="470.0" layoutY="117.0" prefHeight="40.0" prefWidth="188.0" text="Name:">
+        <Label fx:id="workerNameLabel" layoutX="470.0" layoutY="117.0" prefHeight="40.0" prefWidth="188.0" text="Имя:">
             <font>
                 <Font size="27.0" />
             </font>
@@ -30,7 +30,7 @@
                 <Font size="27.0" />
             </font>
         </Label>
-        <Label fx:id="workerNameLabel2" layoutX="470.0" layoutY="157.0" prefHeight="40.0" prefWidth="188.0" text="Phonenummer:">
+        <Label fx:id="workerNameLabel2" layoutX="470.0" layoutY="157.0" prefHeight="40.0" prefWidth="188.0" text="Телефон:">
             <font>
                 <Font size="27.0" />
             </font>
@@ -40,7 +40,7 @@
                 <Font size="27.0" />
             </font>
         </Label>
-        <Label fx:id="workerNameLabel3" layoutX="470.0" layoutY="197.0" prefHeight="40.0" prefWidth="188.0" text="Ort:">
+        <Label fx:id="workerNameLabel3" layoutX="470.0" layoutY="197.0" prefHeight="40.0" prefWidth="188.0" text="Регион:">
             <font>
                 <Font size="27.0" />
             </font>
@@ -50,7 +50,7 @@
                 <Font size="27.0" />
             </font>
         </Label>
-        <Label fx:id="workerNameLabel31" layoutX="470.0" layoutY="237.0" prefHeight="40.0" prefWidth="188.0" text="Apartments:">
+        <Label fx:id="workerNameLabel31" layoutX="470.0" layoutY="237.0" prefHeight="40.0" prefWidth="188.0" text="Апартаменты:">
             <font>
                 <Font size="27.0" />
             </font>

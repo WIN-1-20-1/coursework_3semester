@@ -10,17 +10,17 @@
     <children>
         <AnchorPane prefHeight="86.0" prefWidth="1200.0" style="-fx-background-color: #2e3348;">
             <children>
-                <Label layoutX="327.0" layoutY="2.0" prefHeight="83.0" prefWidth="546.0" text="Mieten und verkaufen" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="356.0" layoutY="2.0" prefHeight="83.0" prefWidth="488.0" text="Продажа и аренда" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font size="56.0" />
                     </font>
                 </Label>
-                <Button fx:id="LogOutButton" layoutX="1079.0" layoutY="31.0" mnemonicParsing="false" text="Abmelden" />
-                <Button fx:id="HomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Home" />
+                <Button fx:id="LogOutButton" layoutX="1079.0" layoutY="31.0" mnemonicParsing="false" text="Выйти" />
+                <Button fx:id="HomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Домой" />
             </children>
         </AnchorPane>
-        <Button fx:id="Rent" layoutX="1075.0" layoutY="634.0" mnemonicParsing="false" text="Mieten" />
-        <Button fx:id="Sell" layoutX="1067.0" layoutY="601.0" mnemonicParsing="false" text="Verkaufen" />
+        <Button fx:id="Rent" layoutX="1058.0" layoutY="634.0" mnemonicParsing="false" text="Арендовать" />
+        <Button fx:id="Sell" layoutX="1067.0" layoutY="601.0" mnemonicParsing="false" text="Продать" />
         <ListView fx:id="clientListView" layoutX="76.0" layoutY="113.0" prefHeight="444.0" prefWidth="525.0" />
         <ListView fx:id="apartmentListView" layoutX="600.0" layoutY="113.0" prefHeight="444.0" prefWidth="525.0" />
         <Label fx:id="clientNameLabel" layoutX="76.0" layoutY="557.0" prefHeight="40.0" prefWidth="525.0">
@@ -38,7 +38,7 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="601.0" layoutY="626.0" prefHeight="40.0" prefWidth="208.0" text="Mietpreis (€):">
+      <Label layoutX="601.0" layoutY="626.0" prefHeight="40.0" prefWidth="208.0" text="Аренда:">
          <font>
             <Font size="27.0" />
          </font>
@@ -48,7 +48,7 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="600.0" layoutY="593.0" prefHeight="40.0" prefWidth="208.0" text="Verkaufspreis (€):">
+      <Label layoutX="600.0" layoutY="593.0" prefHeight="40.0" prefWidth="208.0" text="Продажа:">
          <font>
             <Font size="27.0" />
          </font>

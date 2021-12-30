@@ -10,15 +10,15 @@
     <children>
         <AnchorPane prefHeight="86.0" prefWidth="900.0" style="-fx-background-color: #2e3348;">
             <children>
-                <Label layoutX="363.0" layoutY="2.0" prefHeight="83.0" prefWidth="174.0" text="Gehalt" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="214.0" layoutY="2.0" prefHeight="83.0" prefWidth="472.0" text="Новая интеграция" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font size="56.0" />
                     </font></Label>
-                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Abmelden" />
-                <Button fx:id="HomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Home" />
+                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Выйти" />
+                <Button fx:id="HomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Домой" />
             </children>
         </AnchorPane>
-        <Button fx:id="spendButton" layoutX="345.0" layoutY="488.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="214.0" text="Ausgeben">
+        <Button fx:id="spendButton" layoutX="345.0" layoutY="488.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="214.0" text="Создать">
          <font>
             <Font size="32.0" />
          </font></Button>
@@ -27,17 +27,17 @@
                 <Font size="27.0" />
             </font>
         </Label>
-      <TextField fx:id="getProject" layoutX="249.0" layoutY="233.0" prefHeight="67.0" prefWidth="402.0" promptText="Project">
+      <TextField fx:id="getProject" layoutX="249.0" layoutY="233.0" prefHeight="67.0" prefWidth="402.0" promptText="Имя">
          <font>
             <Font size="31.0" />
          </font>
       </TextField>
-      <TextField fx:id="getMoney" layoutX="250.0" layoutY="357.0" prefHeight="67.0" prefWidth="402.0" promptText="Geld">
+      <TextField fx:id="getMoney" layoutX="250.0" layoutY="357.0" prefHeight="67.0" prefWidth="402.0" promptText="Бюджет">
          <font>
             <Font size="31.0" />
          </font>
       </TextField>
-      <TextField fx:id="getPlace" layoutX="249.0" layoutY="131.0" prefHeight="67.0" prefWidth="402.0" promptText="Ort">
+      <TextField fx:id="getPlace" layoutX="249.0" layoutY="131.0" prefHeight="67.0" prefWidth="402.0" promptText="Место">
          <font>
             <Font size="31.0" />
          </font>

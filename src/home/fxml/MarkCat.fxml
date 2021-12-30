@@ -10,12 +10,12 @@
     <children>
         <AnchorPane prefHeight="86.0" prefWidth="900.0" style="-fx-background-color: #2e3348;">
             <children>
-                <Label fx:id="catLabel" layoutX="345.0" layoutY="13.0" prefHeight="60.0" prefWidth="211.0" text="Abdeckungsbereiche" textAlignment="CENTER" textFill="WHITE">
+                <Label fx:id="catLabel" layoutX="345.0" layoutY="13.0" prefHeight="60.0" prefWidth="211.0" text="Категории маркетинга" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font size="20.0" />
                     </font></Label>
-                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Abmelden" />
-                <Button fx:id="catHomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Home" />
+                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Выйти" />
+                <Button fx:id="catHomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Домой" />
             </children>
         </AnchorPane>
         <ListView fx:id="catListView" fixedCellSize="40.0" layoutX="202.0" layoutY="113.0" prefHeight="319.0" prefWidth="498.0" />

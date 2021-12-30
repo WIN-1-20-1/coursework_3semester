@@ -29,7 +29,6 @@ public class SaleManager {
         SaleManagerListView.getItems().addAll(option);
         SaleManagerListView.setOnMouseClicked(event -> {
             aktuelleOption = SaleManagerListView.getSelectionModel().getSelectedItem();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             switch (aktuelleOption) {
                 case "Wohnungen verkaufen oder mieten" -> Methods.loadStage("RentSell", event);
                 case "Kundenliste und Kundendaten" -> Methods.loadStage("ClientList", event);

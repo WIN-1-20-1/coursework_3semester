@@ -22,17 +22,17 @@
          <children>
             <AnchorPane layoutY="89.0" prefHeight="311.0" prefWidth="700.0" style="-fx-background-color: #fafafa;">
                <children>
-                  <TextField fx:id="SingUpLogin" onAction="#onEnter" layoutX="193.0" layoutY="111.0" prefHeight="37.0" prefWidth="314.0" promptText="Login">
+                  <TextField fx:id="SingUpLogin" layoutX="193.0" layoutY="111.0" onAction="#onEnter" prefHeight="37.0" prefWidth="314.0" promptText="Логин">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </TextField>
-                  <PasswordField fx:id="SingUpPass"  onAction="#onEnter" layoutX="193.0" layoutY="186.0" prefHeight="37.0" prefWidth="314.0" promptText="Passwort">
+                  <PasswordField fx:id="SingUpPass" layoutX="193.0" layoutY="186.0" onAction="#onEnter" prefHeight="37.0" prefWidth="314.0" promptText="Пароль">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </PasswordField>
-                  <Label layoutX="223.0" layoutY="14.0" prefHeight="49.0" prefWidth="255.0" text="Authorisation" textFill="#250e0e">
+                  <Label layoutX="223.0" layoutY="14.0" prefHeight="49.0" prefWidth="261.0" text="Авторизация" textFill="#250e0e">
                      <font>
                         <Font name="Arial" size="43.0" />
                      </font>
@@ -44,7 +44,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <Label layoutX="142.0" layoutY="14.0" text="AIS &quot;Immobilien&quot;" textFill="WHITE">
+            <Label layoutX="142.0" layoutY="14.0" text="Недвижимость" textFill="WHITE">
                <font>
                   <Font name="Arial" size="56.0" />
                </font>
