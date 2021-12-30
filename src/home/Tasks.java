@@ -25,7 +25,7 @@ public class Tasks {
 
     @FXML
     void initialize() {
-        taskLabel.setText("Aufgaben");
+        taskLabel.setText("Задания");
         LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
         tasksHomeButton.setOnAction(event -> Methods.loadStage(Controller.position, event));
         ArrayList<Document> tasks = Methods.getTasks();
@@ -34,7 +34,7 @@ public class Tasks {
                 tasksListView.getItems().add(document.getString("task"));
             }
         } else {
-            taskLabel.setText("Keine Aufgaben");
+            taskLabel.setText("Заданий нет");
         }
         tasksListView.setOnMouseClicked(event -> {
            String aktuelleOption = tasksListView.getSelectionModel().getSelectedItem();
@@ -43,7 +43,7 @@ public class Tasks {
                     Methods.completeTask(document);
                     tasksListView.getItems().remove(aktuelleOption);
                    if (tasksListView.getItems().isEmpty()) {
-                       taskLabel.setText("Keine Aufgaben");
+                       taskLabel.setText("Заданий нет");
                    }
                }
            }

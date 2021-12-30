@@ -20,6 +20,6 @@ public class WorkerSalary {
     void initialize() {
         LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
         tasksHomeButton.setOnAction(event -> Methods.loadStage(Controller.position, event));
-        WorkerSalaryText.setText("Gehalt ist " + Methods.getSalary(Controller.id) + "€");
+        WorkerSalaryText.setText("Ваша зарплата " + Methods.getSalary(Controller.id) + "€");
     }
 }

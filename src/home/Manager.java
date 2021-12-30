@@ -17,28 +17,28 @@ public class Manager {
     @FXML
     private Button LogOutButton;
 
-    String[] option = {"Liste der Mitarbeiter anzeigen", "Aufgabenliste anzeigen", "Liste aller Abdeckungsbereiche anzeigen", "Zeigen Sie den Betrag für Immobilien", "Berechnen Sie% nach Immobilienkategorie"};
+    String[] option = {"Список сотрудников", "Список заданий", "Процент клиентов на регион", "Квартиры на продажу и на аренду", "Стоимость квартир на продажу и на аренду"};
 
     String aktuelleOption;
 
     @FXML
     void initialize(){
-        ManagerLabel.setText( "Hallo, " + Controller.name);
+        ManagerLabel.setText( "Привет, " + Controller.name);
         ManagerListView.getItems().addAll(option);
         LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
         ManagerListView.setOnMouseClicked(event -> {
             aktuelleOption = ManagerListView.getSelectionModel().getSelectedItem();
             switch (aktuelleOption) {
-                case "Liste der Mitarbeiter anzeigen" -> Methods.loadStage("WorkerList", event);
-                case "Aufgabenliste anzeigen" -> Methods.loadStage("Tasks", event);
-                case "Liste aller Abdeckungsbereiche anzeigen" -> Methods.loadStage("ClientsAreas", event);
-                case "Zeigen Sie den Betrag für Immobilien" -> {
+                case "Список сотрудников" -> Methods.loadStage("WorkerList", event);
+                case "Список заданий" -> Methods.loadStage("Tasks", event);
+                case "Процент клиентов на регион" -> Methods.loadStage("ClientsAreas", event);
+                case "Квартиры на продажу и на аренду" -> {
                     Map<String, Integer> category = Methods.calculateByCategory();
-                    Methods.alert("Zeigen Sie den Betrag für Immobilien", "Fur Rent " + category.get("Rent") + "\n Fur Sell " + category.get("Sell"));
+                    Methods.alert("Квартиры на продажу и на аренду", "На аренду " + category.get("Rent") + "\nНа продажу " + category.get("Sell"));
                 }
-                case "Berechnen Sie% nach Immobilienkategorie" -> {
+                case "Стоимость квартир на продажу и на аренду" -> {
                     Map<String, Integer> category = Methods.calculateTotalAmount();
-                    Methods.alert("Zeigen Sie den Betrag für Immobilien", "Fur Rent " + category.get("Rent") + "€" + "\n Fur Sell " + category.get("Sell") + "€");
+                    Methods.alert("Стоимость квартир на продажу и на аренду", "На аренду " + category.get("Rent") + "€" + "\nНа продажу " + category.get("Sell") + "€");
                 }
                 default -> {}
             }

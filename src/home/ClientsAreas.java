@@ -15,7 +15,7 @@ public class ClientsAreas {
     @FXML
     private Button LogOutButton;
 
-    String[] stadte = {"Bishkek","Chui", "Talas", "Jalal-Abad", "Osh", "Naryn", "Issyk-Kul", "Batken"};
+    String[] stadte = {"Бишкек", "Чуй", "Талас", "Джалал-Абад", "Ош", "Нарын", "Ыссык-Куль", "Баткен"};
 
     String aktuelleOption;
 
@@ -27,7 +27,7 @@ public class ClientsAreas {
         AreasListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             aktuelleOption = AreasListView.getSelectionModel().getSelectedItem();
             double result = Methods.calculateClietnsPerArea(aktuelleOption);
-            Methods.alert("Ergebnis!","Die Anzahl der Kunden in " + aktuelleOption + " ist " + Math.floor(result) + "%");
+            Methods.alert("Результат!","Клиентов в " + aktuelleOption + " составляет " + Math.floor(result) + "%");
         });
     }
 

@@ -15,21 +15,21 @@ public class Marketing {
     @FXML
     private Button LogOutButton;
 
-    String[] option = {"Liste der Kategorien für Marketing anzeigen", "Werbeintegration", "Geben Sie Ihr Budget für Werbung aus"};
+    String[] option = {"Категории", "Рекламная интеграция", "Новая рекламная интеграция"};
 
     String aktuelleOption;
 
     @FXML
     void initialize(){
-        MarketingLabel.setText( "Hallo, " + Controller.name);
+        MarketingLabel.setText( "Привет, " + Controller.name);
         MarketingListView.getItems().addAll(option);
         LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
         MarketingListView.setOnMouseClicked(event -> {
             aktuelleOption = MarketingListView.getSelectionModel().getSelectedItem();
             switch (aktuelleOption) {
-                case "Liste der Kategorien für Marketing anzeigen" -> Methods.alert("Kategorien", "Marketing " + Methods.getBudget("marketing") + "€" + "\n Salary " + Methods.getBudget("salary") + "€");
-                case "Werbeintegration" -> Methods.loadStage("Projects", event);
-                case "Geben Sie Ihr Budget für Werbung aus" -> Methods.loadStage("Promotion", event);
+                case "Категории" -> Methods.alert("Категории", "Маркетинг " + Methods.getBudget("marketing") + "€" + "\n Зарплаты " + Methods.getBudget("salary") + "€");
+                case "Рекламная интеграция" -> Methods.loadStage("Projects", event);
+                case "Новая рекламная интеграция" -> Methods.loadStage("Promotion", event);
                 default -> {}
                 }
             });

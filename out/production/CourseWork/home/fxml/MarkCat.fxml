@@ -10,7 +10,7 @@
     <children>
         <AnchorPane prefHeight="86.0" prefWidth="900.0" style="-fx-background-color: #2e3348;">
             <children>
-                <Label fx:id="catLabel" layoutX="345.0" layoutY="13.0" prefHeight="60.0" prefWidth="211.0" text="Abdeckungsbereiche" textAlignment="CENTER" textFill="WHITE">
+                <Label fx:id="catLabel" layoutX="345.0" layoutY="13.0" prefHeight="60.0" prefWidth="211.0" text="Категории маркетинга" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font size="20.0" />
                     </font></Label>

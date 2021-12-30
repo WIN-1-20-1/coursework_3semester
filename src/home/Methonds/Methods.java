@@ -57,8 +57,8 @@ public class Methods {
 
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Fehlermeldung");
-            alert.setHeaderText("Falsches Login oder Passwort");
+            alert.setTitle("Ошибка");
+            alert.setHeaderText("Неверный логин или пароль");
             alert.showAndWait().ifPresent(rs -> {
                 if (rs == ButtonType.OK) {
                     System.out.print("");
@@ -247,16 +247,16 @@ public class Methods {
             document.append("cost", price);
             document.append("name of event", name);
             Database.budget.insertOne(document);
-            alert.setTitle("Erfolg");
-            alert.setHeaderText("Projekt erfolgreich erstellt");
+            alert.setTitle("Успех!");
+            alert.setHeaderText("Новая интеграция создана");
             alert.showAndWait().ifPresent(rs -> {
                 if (rs == ButtonType.OK) {
                     System.out.print("");
                 }
             });
         } else {
-            alert.setTitle("Ahtung");
-            alert.setHeaderText("Nicht genug Geld. Sprechen Sie mit dem Regisseur.");
+            alert.setTitle("Внимание!");
+            alert.setHeaderText("Недостаточно средств");
             alert.showAndWait().ifPresent(rs -> {
                 if (rs == ButtonType.OK) {
                     System.out.print("");

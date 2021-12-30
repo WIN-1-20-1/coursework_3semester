@@ -14,8 +14,8 @@
                     <font>
                         <Font size="20.0" />
                     </font></Label>
-                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Abmelden" />
-            <Button fx:id="tasksHomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Home" />
+                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Выйти" />
+            <Button fx:id="tasksHomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Домой" />
             </children>
         </AnchorPane>
         <ListView fx:id="tasksListView" fixedCellSize="40.0" layoutX="202.0" layoutY="113.0" prefHeight="319.0" prefWidth="498.0" />

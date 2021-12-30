@@ -17,20 +17,20 @@ public class Worker  {
     @FXML
     private Button LogOutButton;
 
-    String[] option = {"Liste Aufgaben anzeigen", "Zeige mein Gehalt"};
+    String[] option = {"Список заданий", "Зарплата"};
 
     String aktuelleOption;
 
     @FXML
     void initialize(){
-        workerLabel.setText( "Hallo, " + Controller.name);
+        workerLabel.setText( "Привет, " + Controller.name);
         WorkerListView.getItems().addAll(option);
         LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
         WorkerListView.setOnMouseClicked(event -> {
             aktuelleOption = WorkerListView.getSelectionModel().getSelectedItem();
             switch (aktuelleOption) {
-                case "Liste Aufgaben anzeigen" -> Methods.loadStage("Tasks", event);
-                case "Zeige mein Gehalt" -> Methods.loadStage("WorkerSalary", event);
+                case "Список заданий" -> Methods.loadStage("Tasks", event);
+                case "Зарплата" -> Methods.loadStage("WorkerSalary", event);
                 default -> {}
             }
         });

@@ -12,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("fxml/Home.fxml")));
-        primaryStage.setTitle("AIS \"Immobilien\"");
+        primaryStage.setTitle("Недвижимость");
         Image icon = new Image("file:icon.png");
         primaryStage.getIcons().addAll(icon);
         primaryStage.setScene(new Scene(root, 700, 400));

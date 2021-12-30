@@ -37,7 +37,7 @@
                         <Font name="Arial" size="43.0" />
                      </font>
                   </Label>
-                  <Button fx:id="authButton" layoutX="260.0" layoutY="246.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="174.0" style="-fx-background-color: #f39c63;" text="Login" textFill="WHITE">
+                  <Button fx:id="authButton" layoutX="260.0" layoutY="246.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="174.0" style="-fx-background-color: #f39c63;" text="Войти" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="26.0" />
                      </font>

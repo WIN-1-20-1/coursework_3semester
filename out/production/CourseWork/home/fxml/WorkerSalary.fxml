@@ -9,15 +9,15 @@
     <children>
         <AnchorPane prefHeight="86.0" prefWidth="900.0" style="-fx-background-color: #2e3348;">
             <children>
-                <Label layoutX="363.0" layoutY="2.0" prefHeight="83.0" prefWidth="174.0" text="Gehalt" textAlignment="CENTER" textFill="WHITE">
+                <Label layoutX="318.0" layoutY="2.0" prefHeight="83.0" prefWidth="251.0" text="Зарплата" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font size="56.0" />
                     </font></Label>
-                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Abmelden" />
-                <Button fx:id="tasksHomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Home" />
+                <Button fx:id="LogOutButton" layoutX="802.0" layoutY="31.0" mnemonicParsing="false" text="Выйти" />
+                <Button fx:id="tasksHomeButton" layoutX="47.0" layoutY="31.0" mnemonicParsing="false" text="Домой" />
             </children>
         </AnchorPane>
-      <Label fx:id="WorkerSalaryText" layoutX="251.0" layoutY="265.0" prefHeight="71.0" prefWidth="398.0" text="Gehalt ist ">
+      <Label fx:id="WorkerSalaryText" layoutX="251.0" layoutY="265.0" prefHeight="71.0" prefWidth="398.0" text="Ваша зарплата">
          <font>
             <Font size="38.0" />
          </font>

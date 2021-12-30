@@ -15,26 +15,26 @@ public class Director{
     @FXML
     private Button LogOutButton;
 
-    String[] option = {"Liste aller Abdeckungsbereiche anzeigen", "Budget für Marketing", "Budget für Gehälter", "Werbeintegration", "Das richtige Budget für die Marketing", "Das richtige Budget für die Gehälter", "Gehalt eines Mitarbeiters ändern", "Ausrüstung"};
+    String[] option = {"Процент клиентов на регион", "Бюджет для маркетинга", "Бюджет для зарплат", "Рекламная интеграция", "Нужный бюджет для маркетинга", "Нужный бюджет для зарплат", "Изменить зарплату сотрудника", "Оборудование"};
 
     String aktuelleOption;
 
     @FXML
     void initialize(){
-        DirectorLabel.setText( "Hallo, " + Controller.name);
+        DirectorLabel.setText( "Привет, " + Controller.name);
         LogOutButton.setOnAction(event -> Methods.loadStage("Home", event));
         DirectorListView.getItems().addAll(option);
         DirectorListView.setOnMouseClicked(event -> {
             aktuelleOption = DirectorListView.getSelectionModel().getSelectedItem();
             switch (aktuelleOption) {
-                case "Liste aller Abdeckungsbereiche anzeigen" -> Methods.loadStage("ClientsAreas", event);
-                case "Budget für Marketing" -> Methods.alert("Marketing", Methods.getBudget("marketing") + "€");
-                case "Budget für Gehälter" -> Methods.alert("Gehälter", Methods.getBudget("salary") + "€");
-                case "Werbeintegration" -> Methods.loadStage("Projects", event);
-                case "Das richtige Budget für die Marketing" -> Methods.alert("Aktuelle Marketingmittel anzeigen", Methods.markFunds() + "€");
-                case "Das richtige Budget für die Gehälter" -> Methods.alert("Ausgegebenes Budget für Gehalt", Methods.getUsedBudgetForSalary() + "€");
-                case "Gehalt eines Mitarbeiters ändern" -> Methods.loadStage("ChangeSalary", event);
-                case "Ausrüstung" -> Methods.loadStage("Equipment", event);
+                case "Процент клиентов на регион" -> Methods.loadStage("ClientsAreas", event);
+                case "Бюджет для маркетинга" -> Methods.alert("Маркетинг", Methods.getBudget("marketing") + "€");
+                case "Бюджет для зарплат" -> Methods.alert("Зарплаты", Methods.getBudget("salary") + "€");
+                case "Рекламная интеграция" -> Methods.loadStage("Projects", event);
+                case "Нужный бюджет для маркетинга" -> Methods.alert("Нужный бюджет для маркетинга", Methods.markFunds() + "€");
+                case "Нужный бюджет для зарплат" -> Methods.alert("Нужный бюджет для зарплат", Methods.getUsedBudgetForSalary() + "€");
+                case "Изменить зарплату сотрудника" -> Methods.loadStage("ChangeSalary", event);
+                case "Оборудование" -> Methods.loadStage("Equipment", event);
                 default -> {}
             }
         });

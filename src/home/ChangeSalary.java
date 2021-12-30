@@ -42,11 +42,11 @@ public class ChangeSalary {
         });
         increase.setOnAction(event -> {
             Methods.increaseSalary(aktuelleOption, Integer.parseInt(getNumber.getText()));
-            Methods.alert("Erfolg", aktuelleOption + "s Gehalt wurde um " + getNumber.getText() + " erhöht");
+            Methods.alert("Успех!", "Зарплата " + aktuelleOption + " была повышена на " + getNumber.getText());
         });
         decrease.setOnAction(event -> {
             Methods.decreaseSalary(aktuelleOption, Integer.parseInt(getNumber.getText()));
-            Methods.alert("Erfolg", aktuelleOption + "s Gehalt wurde um " + getNumber.getText() + " senkt");
+            Methods.alert("Успех!", "Зарплата " + aktuelleOption + " была понижена на " + getNumber.getText());
         });
     }
 }
